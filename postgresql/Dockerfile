@@ -4,4 +4,6 @@ ENV POSTGRES_USER admin
 ENV POSTGRES_PASSWORD admin
 ENV POSTGRES_DB aghcampus
 
+COPY data.sql /data.sql
+
 EXPOSE 5432
