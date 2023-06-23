@@ -13,7 +13,7 @@ public class Information {
     private Long id;
 
     @CreationTimestamp
-    private Date createdDate;
+    private Date timestamp;
 
     private String content;
     private String author;
