@@ -11,7 +11,7 @@ import java.util.List;
 public class Place {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public  Long id;
+    private  Long id;
 
     @OneToOne(cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
