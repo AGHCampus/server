@@ -17,6 +17,7 @@ public class Information {
     @CreationTimestamp
     private Date timestamp;
 
+    @Column(length = 2048)
     private String content;
     private String author;
 }
