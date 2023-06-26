@@ -1,10 +1,12 @@
 package pl.edu.agh.server.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.List;
 
 @Entity
+@Data
 @Table(name = "places_details")
 public class PlaceDetails {
     @Id
