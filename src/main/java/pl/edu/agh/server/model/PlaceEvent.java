@@ -29,6 +29,7 @@ public class PlaceEvent {
     @Column(insertable = false, updatable = false)
     private Long place_id;
 
+    @Column(length = 2048)
     private String description;
     private String name;
     private String place_name;
