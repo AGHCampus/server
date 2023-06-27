@@ -32,7 +32,7 @@ public class PlaceController {
 
     @GetMapping(value = "/{id}/details", produces = "application/json")
     public PlaceDetails getPlaceDetails(@PathVariable long id) {
-        return placeDetailsRepository.getReferenceById(id);
+        return placeDetailsRepository.findById(id).orElse(null);
     }
 
     @GetMapping(value = "/{id}/offers", produces = "application/json")
