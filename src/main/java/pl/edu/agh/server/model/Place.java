@@ -19,10 +19,10 @@ public class Place {
     private PlaceDetails placeDetails;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "place")
-    private List<PlaceOffer> placeOffers;
+    private List<Offer> offers;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "place")
-    private List<PlaceEvent> placeEvents;
+    private List<Event> events;
 
     @Getter
     @Setter
@@ -39,4 +39,8 @@ public class Place {
     @Getter
     @Setter
     private double latitude;
+
+    @Getter
+    @Setter
+    private String logo_url;
 }

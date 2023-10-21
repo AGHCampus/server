@@ -10,7 +10,7 @@ import java.util.Date;
 @Entity
 @Data
 @Table(name = "offers")
-public class PlaceOffer {
+public class Offer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -29,6 +29,8 @@ public class PlaceOffer {
     @Column(insertable = false, updatable = false)
     private Long place_id;
 
-    private String content;
+    private String description;
     private String place_name;
+    private String image_url;
+    private String website_url;
 }
