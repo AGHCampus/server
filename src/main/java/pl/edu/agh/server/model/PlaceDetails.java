@@ -1,7 +1,10 @@
 package pl.edu.agh.server.model;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -18,6 +21,8 @@ public class PlaceDetails {
     @OneToOne
     @MapsId
     @JoinColumn(name = "id")
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
     private Place place;
 
     private String phone_number;
