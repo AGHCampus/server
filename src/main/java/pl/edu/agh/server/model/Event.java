@@ -27,9 +27,9 @@ public class Event {
     @CreationTimestamp
     private Date timestamp;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
-    private Date startDate;
+    private Date start_date;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
-    private Date endDate;
+    private Date end_date;
 
     @Column(insertable = false, updatable = false)
     private Long place_id;
