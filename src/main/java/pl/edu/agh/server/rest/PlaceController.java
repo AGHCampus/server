@@ -25,7 +25,7 @@ public class PlaceController {
     private final OfferController offerController;
 
 
-    @GetMapping(value = "/", produces = "application/json")
+    @GetMapping(value = "/all", produces = "application/json")
     public List<Place> getPlacesList() {
         return placeRepository.findAll();
     }

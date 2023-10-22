@@ -16,7 +16,7 @@ import java.util.List;
 public class OfferController {
     private final OfferRepository offerRepository;
 
-    @GetMapping(value = "/", produces = "application/json")
+    @GetMapping(value = "/all", produces = "application/json")
     public List<Offer> getAllOffers() {
         return offerRepository.findAll();
     }

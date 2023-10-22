@@ -16,7 +16,7 @@ import java.util.List;
 public class EventController {
     private final EventRepository eventRepository;
 
-    @GetMapping(value = "/", produces = "application/json")
+    @GetMapping(value = "/all", produces = "application/json")
     public List<Event> getAllEvents() {
         return eventRepository.findAll();
     }

@@ -15,7 +15,7 @@ import java.util.List;
 public class InformationController {
     private final InformationRepository informationRepository;
 
-    @GetMapping(value = "/", produces = "application/json")
+    @GetMapping(value = "/all", produces = "application/json")
     public List<Information> getInformationList() {
         return informationRepository.findAll();
     }
