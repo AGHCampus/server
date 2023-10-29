@@ -35,7 +35,7 @@ public class LocationService {
         return locations;
     }
 
-    public LocationContent getAllData(@PathVariable long id) {
+    public LocationContent getLocationContent(@PathVariable long id) {
         List<Offer> offers = offerService.getLocationOffers(id);
         List<Event> events = eventService.getLocationEvents(id);
         LocationDetails locationDetails = locationDetailsService.getLocationDetails(id);

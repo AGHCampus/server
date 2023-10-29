@@ -1,11 +1,9 @@
 package pl.edu.agh.server.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
@@ -20,8 +18,7 @@ public class Offer {
 
     @ManyToOne
     @JoinColumn(name = "location_id", referencedColumnName = "id")
-    @Getter(AccessLevel.NONE)
-    @Setter(AccessLevel.NONE)
+    @JsonIgnore
     private Location location;
 
     @CreationTimestamp

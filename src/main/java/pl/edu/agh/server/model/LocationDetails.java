@@ -1,10 +1,8 @@
 package pl.edu.agh.server.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -21,8 +19,7 @@ public class LocationDetails {
     @OneToOne
     @MapsId
     @JoinColumn(name = "id")
-    @Getter(AccessLevel.NONE)
-    @Setter(AccessLevel.NONE)
+    @JsonIgnore
     private Location location;
 
     private String phone_number;

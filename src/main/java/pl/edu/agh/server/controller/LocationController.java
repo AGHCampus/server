@@ -31,8 +31,8 @@ public class LocationController {
         return locationDetailsService.getLocationDetails(id);
     }
 
-    @GetMapping(value = "/{id}/info", produces = "application/json")
-    public LocationContent getAllData(@PathVariable long id) {
-        return locationService.getAllData(id);
+    @GetMapping(value = "/{id}/content", produces = "application/json")
+    public LocationContent getLocationContent(@PathVariable long id) {
+        return locationService.getLocationContent(id);
     }
 }
