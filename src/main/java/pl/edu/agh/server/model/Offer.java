@@ -37,6 +37,7 @@ public class Offer {
     private Date endDate;
 
     @Column(insertable = false, updatable = false)
+    @JsonIgnore
     private Long locationId;
 
     private String description;
