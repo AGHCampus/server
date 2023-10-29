@@ -1,8 +1,10 @@
 package pl.edu.agh.server.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import pl.edu.agh.server.service.common.Coordinate;
 
 import java.util.List;
 
@@ -34,13 +36,20 @@ public class Location {
 
     @Getter
     @Setter
+    @JsonIgnore
     private double longitude;
 
     @Getter
     @Setter
+    @JsonIgnore
     private double latitude;
 
     @Getter
     @Setter
     private String logo_url;
+
+    @Transient
+    @Getter
+    @Setter
+    private Coordinate coordinate;
 }

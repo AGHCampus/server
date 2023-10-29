@@ -3,12 +3,13 @@ package pl.edu.agh.server.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
-import pl.edu.agh.server.common.LocationContent;
 import pl.edu.agh.server.model.Event;
 import pl.edu.agh.server.model.Location;
 import pl.edu.agh.server.model.LocationDetails;
 import pl.edu.agh.server.model.Offer;
 import pl.edu.agh.server.repostiory.LocationRepository;
+import pl.edu.agh.server.service.common.Coordinate;
+import pl.edu.agh.server.service.common.LocationContent;
 
 import java.util.List;
 
@@ -27,7 +28,11 @@ public class LocationService {
     private LocationDetailsService locationDetailsService;
 
     public List<Location> getLocationList() {
-        return locationRepository.findAll();
+        List<Location> locations = locationRepository.findAll();
+
+        locations.forEach(location -> location.setCoordinate(new Coordinate(location.getLongitude(), location.getLatitude())));
+
+        return locations;
     }
 
     public LocationContent getAllData(@PathVariable long id) {

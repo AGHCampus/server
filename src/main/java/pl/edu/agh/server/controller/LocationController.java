@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.edu.agh.server.common.LocationContent;
 import pl.edu.agh.server.model.Location;
 import pl.edu.agh.server.model.LocationDetails;
 import pl.edu.agh.server.service.LocationDetailsService;
 import pl.edu.agh.server.service.LocationService;
+import pl.edu.agh.server.service.common.LocationContent;
 
 import java.util.List;
 

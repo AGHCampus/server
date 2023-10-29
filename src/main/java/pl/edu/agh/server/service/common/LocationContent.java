@@ -1,4 +1,4 @@
-package pl.edu.agh.server.common;
+package pl.edu.agh.server.service.common;
 
 import lombok.Getter;
 import pl.edu.agh.server.model.Event;
