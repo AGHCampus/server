@@ -6,5 +6,7 @@ import pl.edu.agh.server.model.Event;
 import java.util.List;
 
 public interface EventRepository extends JpaRepository<Event, Long> {
-    List<Event> findByLocationId(Long id);
+    List<Event> findAllByOrderByStartDateAsc();
+
+    List<Event> findByLocationIdOrderByStartDateAsc(Long id);
 }

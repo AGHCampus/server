@@ -13,10 +13,11 @@ public class EventService {
     private EventRepository eventRepository;
 
     public List<Event> getAllEvents() {
-        return eventRepository.findAll();
+        return eventRepository.findAllByOrderByStartDateAsc();
+
     }
 
     public List<Event> getLocationEvents(long id) {
-        return eventRepository.findByLocationId(id);
+        return eventRepository.findByLocationIdOrderByStartDateAsc(id);
     }
 }

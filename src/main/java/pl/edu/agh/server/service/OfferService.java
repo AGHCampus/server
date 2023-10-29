@@ -13,10 +13,10 @@ public class OfferService {
     private OfferRepository offerRepository;
 
     public List<Offer> getAllOffers() {
-        return offerRepository.findAll();
+        return offerRepository.findAllByOrderByStartDateAsc();
     }
 
     public List<Offer> getLocationOffers(long id) {
-        return offerRepository.findByLocationId(id);
+        return offerRepository.findByLocationIdOrderByStartDateAsc(id);
     }
 }
