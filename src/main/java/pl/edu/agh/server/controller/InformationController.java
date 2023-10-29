@@ -1,4 +1,4 @@
-package pl.edu.agh.server.rest;
+package pl.edu.agh.server.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

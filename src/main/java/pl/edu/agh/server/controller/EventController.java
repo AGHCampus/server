@@ -1,4 +1,4 @@
-package pl.edu.agh.server.rest;
+package pl.edu.agh.server.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +22,7 @@ public class EventController {
     }
 
     @GetMapping(value = "/{id}", produces = "application/json")
-    public List<Event> getPlaceEvents(@PathVariable long id) {
-        return eventRepository.findByPlaceId(id);
+    public List<Event> getLocationEvents(@PathVariable long id) {
+        return eventRepository.findByLocationId(id);
     }
 }

@@ -13,8 +13,8 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name = "places_details")
-public class PlaceDetails {
+@Table(name = "locations_details")
+public class LocationDetails {
     @Id
     private Long id;
 
@@ -23,7 +23,7 @@ public class PlaceDetails {
     @JoinColumn(name = "id")
     @Getter(AccessLevel.NONE)
     @Setter(AccessLevel.NONE)
-    private Place place;
+    private Location location;
 
     private String phone_number;
     private String website_url;

@@ -6,5 +6,5 @@ import pl.edu.agh.server.model.Event;
 import java.util.List;
 
 public interface EventRepository extends JpaRepository<Event, Long> {
-    List<Event> findByPlaceId(Long id);
+    List<Event> findByLocationId(Long id);
 }

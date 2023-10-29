@@ -19,10 +19,10 @@ public class Event {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "place_id", referencedColumnName = "id")
+    @JoinColumn(name = "location_id", referencedColumnName = "id")
     @Getter(AccessLevel.NONE)
     @Setter(AccessLevel.NONE)
-    private Place place;
+    private Location location;
 
     @CreationTimestamp
     private Date timestamp;
@@ -32,12 +32,12 @@ public class Event {
     private Date end_date;
 
     @Column(insertable = false, updatable = false)
-    private Long place_id;
+    private Long location_id;
 
     @Column(length = 2048)
     private String description;
     private String title;
-    private String place_name;
+    private String location_name;
     private String image_url;
     private String website_url;
 }

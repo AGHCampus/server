@@ -1,4 +1,4 @@
-package pl.edu.agh.server.rest;
+package pl.edu.agh.server.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +22,7 @@ public class OfferController {
     }
 
     @GetMapping(value = "/{id}", produces = "application/json")
-    public List<Offer> getPlaceOffers(@PathVariable long id) {
-        return offerRepository.findByPlaceId(id);
+    public List<Offer> getLocationOffers(@PathVariable long id) {
+        return offerRepository.findByLocationId(id);
     }
 }

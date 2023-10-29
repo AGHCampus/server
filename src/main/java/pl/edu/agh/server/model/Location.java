@@ -7,8 +7,8 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table(name = "places")
-public class Place {
+@Table(name = "locations")
+public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
@@ -16,12 +16,12 @@ public class Place {
 
     @OneToOne(cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
-    private PlaceDetails placeDetails;
+    private LocationDetails locationDetails;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "place")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "location")
     private List<Offer> offers;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "place")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "location")
     private List<Event> events;
 
     @Getter

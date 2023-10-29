@@ -6,5 +6,5 @@ import pl.edu.agh.server.model.Offer;
 import java.util.List;
 
 public interface OfferRepository extends JpaRepository<Offer, Long> {
-    List<Offer> findByPlaceId(Long id);
+    List<Offer> findByLocationId(Long id);
 }
