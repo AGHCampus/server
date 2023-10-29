@@ -18,7 +18,7 @@ public class Offer {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "location_id", referencedColumnName = "id")
+    @JoinColumn(name = "locationId", referencedColumnName = "id")
     @JsonIgnore
     private Location location;
 
@@ -28,18 +28,18 @@ public class Offer {
 
     @LastModifiedDate
     @JsonIgnore
-    protected Date last_modified_date;
+    protected Date lastModifiedDate;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
-    private Date start_date;
+    private Date startDate;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
-    private Date end_date;
+    private Date endDate;
 
     @Column(insertable = false, updatable = false)
-    private Long location_id;
+    private Long locationId;
 
     private String description;
-    private String image_url;
-    private String website_url;
+    private String imageUrl;
+    private String websiteUrl;
 }

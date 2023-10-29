@@ -46,7 +46,7 @@ public class Location {
 
     @Getter
     @Setter
-    private String logo_url;
+    private String logoUrl;
 
     @Transient
     @Getter

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name = "locations_details")
+@Table(name = "locationsDetails")
 public class LocationDetails {
     @Id
     private Long id;
@@ -23,10 +23,10 @@ public class LocationDetails {
     private Location location;
 
     private String phone_number;
-    private String website_url;
+    private String websiteUrl;
     private String address;
     private String description;
-    private String opening_hours;
+    private String openingHours;
 
     @CreationTimestamp
     @JsonIgnore
@@ -34,7 +34,7 @@ public class LocationDetails {
 
     @LastModifiedDate
     @JsonIgnore
-    protected Date last_modified_date;
+    protected Date lastModifiedDate;
 
     @ElementCollection
     private List<String> photos;
