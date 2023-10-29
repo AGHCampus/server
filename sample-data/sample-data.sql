@@ -81,79 +81,79 @@ VALUES (21, 'faculty', 50.06743,
         'https://www.lodplanner.com/wp-content/uploads/AGH-University-of-Science-and-Technology-Logo.png', 19.91652,
         'Wydział Matematyki Stosowanej B-7)');
 
-INSERT INTO public.events (id, description, end_date, image_url, location_id, location_name, start_date, timestamp,
+INSERT INTO public.events (id, description, end_date, image_url, location_id, start_date, timestamp,
                            title, website_url)
 VALUES (4,
         'event Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus.',
         '2024-06-26 00:00:00.000000',
         'https://www.klubstudio.pl/media/cache/event_slider_800/uploads/photo/_0/th-750x500-studio-640b307fe1c05910495534.jpg.web',
-        3, 'Klub Zaścianek', '2023-05-30 00:00:00.000000', '2023-06-26 03:11:14.000000', 'Wydziałówka XYZ',
+        3, '2023-05-30 00:00:00.000000', '2023-06-26 03:11:14.000000', 'Wydziałówka XYZ',
         'https://www.google.com');
-INSERT INTO public.events (id, description, end_date, image_url, location_id, location_name, start_date, timestamp,
+INSERT INTO public.events (id, description, end_date, image_url, location_id, start_date, timestamp,
                            title, website_url)
 VALUES (5, 'global event1', '2024-06-26 00:00:00.000000',
         'https://www.klubstudio.pl/media/cache/event_slider_800/uploads/photo/_0/th-750x500-studio-640b307fe1c05910495534.jpg.web',
-        1, 'global event', '2023-10-21 22:50:24.000000', '2023-10-21 22:50:28.000000', 'AWS course',
+        1, '2023-10-21 22:50:24.000000', '2023-10-21 22:50:28.000000', 'AWS course',
         'https://cri.agh.edu.pl/');
-INSERT INTO public.events (id, description, end_date, image_url, location_id, location_name, start_date, timestamp,
+INSERT INTO public.events (id, description, end_date, image_url, location_id, start_date, timestamp,
                            title, website_url)
 VALUES (6,
         'global event 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci.',
         '2024-06-26 00:00:00.000000',
         'https://www.klubstudio.pl/media/cache/event_slider_800/uploads/photo/_0/th-750x500-studio-640b307fe1c05910495534.jpg.web',
-        1, 'global event', '2023-06-26 03:13:28.000000', '2023-10-21 22:52:20.000000', 'juwenalia',
+        1, '2023-06-26 03:13:28.000000', '2023-10-21 22:52:20.000000', 'juwenalia',
         'https://cri.agh.edu.pl/');
-INSERT INTO public.events (id, description, end_date, image_url, location_id, location_name, start_date, timestamp,
+INSERT INTO public.events (id, description, end_date, image_url, location_id, start_date, timestamp,
                            title, website_url)
 VALUES (7, 'event test 5', '2024-10-22 11:17:54.000000',
         'https://www.klubstudio.pl/media/cache/event_slider_800/uploads/photo/_0/th-750x500-studio-640b307fe1c05910495534.jpg.web',
-        14, 'Sushi 77', '2023-10-22 11:18:12.000000', '2023-10-22 11:18:17.000000', 'Dzień RYBY',
+        14, '2023-10-22 11:18:12.000000', '2023-10-22 11:18:17.000000', 'Dzień RYBY',
         'https://www.orybach.pl/');
-INSERT INTO public.events (id, description, end_date, image_url, location_id, location_name, start_date, timestamp,
+INSERT INTO public.events (id, description, end_date, image_url, location_id, start_date, timestamp,
                            title, website_url)
 VALUES (2,
         'Już 22 maja na jedynym koncercie w Polsce wystąpi niemiecka grupa Tokio Hotel. Ze względów logistycznych koncert ten odbędzie się w innym miejscu, zamiast w katowickim MCKu zespół zagra w krakowskim Klubie Studio. Przepraszamy za wszelkie niedogodności wynikające ze zmiany lokalizacji koncertu i jednocześnie informujemy, że wszystkie bilety zakupione na koncert, który pierwotnie miał odbyć się w 2021 roku, a także w nowym terminie w 2022 i 2023 w katowickim MCKu, zachowują swoją ważność na występ zespołu w krakowskim Klubie Studio. Osoby, które z różnych przyczyn będą chciały zwrócić bilet na to wydarzenie, będą mogły to uczynić w punktach, w których taki bilet zakupiły.',
         '2023-07-26 03:13:18.000000',
         'https://www.klubstudio.pl/media/cache/event_slider_800/uploads/photo/_0/th-750x500-studio-640b307fe1c05910495534.jpg.webp',
-        2, 'Klub STUDIO', '2023-06-26 03:13:28.000000', '2023-06-26 03:11:07.000000', e'Tokio Hotel
+        2, '2023-06-26 03:13:28.000000', '2023-06-26 03:11:07.000000', e'Tokio Hotel
 BEYOND THE WORLD TOUR 2023', 'https://www.google.com');
-INSERT INTO public.events (id, description, end_date, image_url, location_id, location_name, start_date, timestamp,
+INSERT INTO public.events (id, description, end_date, image_url, location_id, start_date, timestamp,
                            title, website_url)
 VALUES (3,
         'Już 22 maja na jedynym koncercie w Polsce wystąpi niemiecka grupa Tokio Hotel. Ze względów logistycznych koncert ten odbędzie się w innym miejscu, zamiast w katowickim MCKu zespół zagra w krakowskim Klubie Studio. Przepraszamy za wszelkie niedogodności wynikające ze zmiany lokalizacji koncertu i jednocześnie informujemy, że wszystkie bilety zakupione na koncert, który pierwotnie miał odbyć się w 2021 roku, a także w nowym terminie w 2022 i 2023 w katowickim MCKu, zachowują swoją ważność na występ zespołu w krakowskim Klubie Studio. Osoby, które z różnych przyczyn będą chciały zwrócić bilet na to wydarzenie, będą mogły to uczynić w punktach, w których taki bilet zakupiły.',
         '2023-12-24 00:00:00.000000',
         'https://www.klubstudio.pl/media/cache/event_slider_800/uploads/photo/_0/th-750x500-studio-640b307fe1c05910495534.jpg.webp',
-        2, 'Klub STUDIO', '2023-12-23 12:00:00.000000', '2023-06-26 03:11:07.000000', e'Tokio Hotel
+        2, '2023-12-23 12:00:00.000000', '2023-06-26 03:11:07.000000', e'Tokio Hotel
 BEYOND THE WORLD TOUR 2023', 'https://www.google.com');
-INSERT INTO public.events (id, description, end_date, image_url, location_id, location_name, start_date, timestamp,
+INSERT INTO public.events (id, description, end_date, image_url, location_id, start_date, timestamp,
                            title, website_url)
 VALUES (1,
         'Po występach Juwenaliowych 17 maja zapraszamy Was na jedyne i niepowtarzalne afterparty, czyli ✨ JUWENALIOWE DISCO WITH THE STARS ✨ w Klubie Studio Jego główną gwiazdą będzie Gromee! 😎',
         '2023-06-30 03:00:00.000000',
         'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRfQkCwON86vHsmNM-v3JhQx350VsZuikAWfTmBU0BMxkDVvGLJ', 2,
-        'Klub STUDIO', '2023-06-29 12:00:00.000000', '2023-06-26 03:11:05.000000', 'JUWENALIOWE DISCO WITH THE STARS',
+        '2023-06-29 12:00:00.000000', '2023-06-26 03:11:05.000000', 'JUWENALIOWE DISCO WITH THE STARS',
         'https://www.google.com');
 
-INSERT INTO public.offers (id, description, end_date, image_url, location_id, location_name, start_date, timestamp,
+INSERT INTO public.offers (id, description, end_date, image_url, location_id, start_date, timestamp,
                            website_url)
 VALUES (1, 'all -10%', '2023-07-26 03:04:34.000000',
         'https://restaumatic-production.imgix.net/uploads/accounts/34896/media_library/58026fe4-3591-4d08-9788-e3bc8bae94d2.jpg',
-        13, 'Sushi 77', '2023-06-26 03:04:31.000000', '2023-06-26 03:04:24.000000', null);
-INSERT INTO public.offers (id, description, end_date, image_url, location_id, location_name, start_date, timestamp,
+        13, '2023-06-26 03:04:31.000000', '2023-06-26 03:04:24.000000', null);
+INSERT INTO public.offers (id, description, end_date, image_url, location_id, start_date, timestamp,
                            website_url)
 VALUES (2, 'all -20%', '2023-10-29 12:00:00.000000',
         'https://restaumatic-production.imgix.net/uploads/accounts/34896/media_library/58026fe4-3591-4d08-9788-e3bc8bae94d2.jpg',
-        13, 'Sushi 77', '2023-08-28 00:00:00.000000', '2023-06-26 03:04:26.000000', null);
-INSERT INTO public.offers (id, description, end_date, image_url, location_id, location_name, start_date, timestamp,
+        13, '2023-08-28 00:00:00.000000', '2023-06-26 03:04:26.000000', null);
+INSERT INTO public.offers (id, description, end_date, image_url, location_id, start_date, timestamp,
                            website_url)
 VALUES (3, 'all -12%', '2026-12-24 00:00:00.000000',
         'https://restaumatic-production.imgix.net/uploads/accounts/34896/media_library/58026fe4-3591-4d08-9788-e3bc8bae94d2.jpg',
-        14, 'Sticky Fingers Pizzeria', '2022-06-23 00:00:00.000000', '2023-06-26 03:04:27.000000', null);
-INSERT INTO public.offers (id, description, end_date, image_url, location_id, location_name, start_date, timestamp,
+        14, '2022-06-23 00:00:00.000000', '2023-06-26 03:04:27.000000', null);
+INSERT INTO public.offers (id, description, end_date, image_url, location_id, start_date, timestamp,
                            website_url)
 VALUES (4, 'all -22%', '2022-06-30 12:00:00.000000',
         'https://restaumatic-production.imgix.net/uploads/accounts/34896/media_library/58026fe4-3591-4d08-9788-e3bc8bae94d2.jpg',
-        15, 'Restauracja Kavior', '2023-06-26 15:00:00.000000', '2023-06-26 03:04:28.000000', null);
+        15, '2023-06-26 15:00:00.000000', '2023-06-26 03:04:28.000000', null);
 
 INSERT INTO public.locations_details (id, address, description, last_modified_date, opening_hours, phone_number,
                                       timestamp, website_url)
