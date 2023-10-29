@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import java.util.Date;
 
@@ -22,9 +23,16 @@ public class Offer {
     private Location location;
 
     @CreationTimestamp
+    @JsonIgnore
     private Date timestamp;
+
+    @LastModifiedDate
+    @JsonIgnore
+    protected Date last_modified_date;
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private Date start_date;
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private Date end_date;
 
@@ -32,7 +40,6 @@ public class Offer {
     private Long location_id;
 
     private String description;
-    private String location_name;
     private String image_url;
     private String website_url;
 }

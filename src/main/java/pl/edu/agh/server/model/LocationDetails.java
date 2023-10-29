@@ -29,9 +29,11 @@ public class LocationDetails {
     private String opening_hours;
 
     @CreationTimestamp
+    @JsonIgnore
     private Date timestamp;
 
     @LastModifiedDate
+    @JsonIgnore
     protected Date last_modified_date;
 
     @ElementCollection
