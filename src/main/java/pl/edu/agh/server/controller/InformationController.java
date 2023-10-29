@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.edu.agh.server.model.Information;
-import pl.edu.agh.server.repostiory.InformationRepository;
+import pl.edu.agh.server.service.InformationService;
 
 import java.util.List;
 
@@ -13,10 +13,10 @@ import java.util.List;
 @RequestMapping("information")
 @RequiredArgsConstructor
 public class InformationController {
-    private final InformationRepository informationRepository;
+    private final InformationService informationService;
 
     @GetMapping(value = "/all", produces = "application/json")
     public List<Information> getInformationList() {
-        return informationRepository.findAll();
+        return informationService.getInformationList();
     }
 }
