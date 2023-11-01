@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Entity
 @Data
-@Table(name = "informations")
+@Table(name = "information")
 public class Information {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,5 +19,5 @@ public class Information {
 
     @Column(length = 2048)
     private String content;
-    private String author;
+    private String title;
 }
