@@ -1,18 +1,13 @@
 package pl.edu.agh.server.service.common;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 import java.io.Serializable;
 
+@RequiredArgsConstructor
+@Getter
 public class Coordinate implements Serializable {
-    @Getter
     private final double longitude;
-
-    @Getter
     private final double latitude;
-
-    public Coordinate(double longitude, double latitude) {
-        this.longitude = longitude;
-        this.latitude = latitude;
-    }
 }

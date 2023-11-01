@@ -22,7 +22,7 @@ public class LocationDetails {
     @JsonIgnore
     private Location location;
 
-    private String phone_number;
+    private String phoneNumber;
     private String websiteUrl;
     private String address;
     private String description;

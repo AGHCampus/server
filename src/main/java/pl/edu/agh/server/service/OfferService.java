@@ -1,6 +1,6 @@
 package pl.edu.agh.server.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.edu.agh.server.model.Offer;
 import pl.edu.agh.server.repostiory.OfferRepository;
@@ -8,9 +8,9 @@ import pl.edu.agh.server.repostiory.OfferRepository;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class OfferService {
-    @Autowired
-    private OfferRepository offerRepository;
+    private final OfferRepository offerRepository;
 
     public List<Offer> getAllOffers() {
         return offerRepository.findAllByOrderByStartDateAsc();

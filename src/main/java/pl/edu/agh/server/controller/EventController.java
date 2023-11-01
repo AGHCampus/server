@@ -11,12 +11,12 @@ import pl.edu.agh.server.service.EventService;
 import java.util.List;
 
 @RestController
-@RequestMapping("event")
+@RequestMapping("events")
 @RequiredArgsConstructor
 public class EventController {
     private final EventService eventService;
 
-    @GetMapping(value = "/all", produces = "application/json")
+    @GetMapping(value = "/", produces = "application/json")
     public List<Event> getAllEvents() {
         return eventService.getAllEvents();
     }

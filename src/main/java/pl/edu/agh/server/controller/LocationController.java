@@ -13,14 +13,13 @@ import pl.edu.agh.server.service.LocationService;
 import java.util.List;
 
 @RestController
-@RequestMapping("location")
+@RequestMapping("locations")
 @RequiredArgsConstructor
 public class LocationController {
     private final LocationService locationService;
     private final LocationDetailsService locationDetailsService;
 
-
-    @GetMapping(value = "/all", produces = "application/json")
+    @GetMapping(value = "/", produces = "application/json")
     public List<Location> getLocationList() {
         return locationService.getLocationList();
     }

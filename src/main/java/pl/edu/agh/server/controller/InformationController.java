@@ -15,7 +15,7 @@ import java.util.List;
 public class InformationController {
     private final InformationService informationService;
 
-    @GetMapping(value = "/all", produces = "application/json")
+    @GetMapping(value = "/", produces = "application/json")
     public List<Information> getInformationList() {
         return informationService.getInformationList();
     }

@@ -11,12 +11,12 @@ import pl.edu.agh.server.service.OfferService;
 import java.util.List;
 
 @RestController
-@RequestMapping("offer")
+@RequestMapping("offers")
 @RequiredArgsConstructor
 public class OfferController {
     private final OfferService offerService;
 
-    @GetMapping(value = "/all", produces = "application/json")
+    @GetMapping(value = "/", produces = "application/json")
     public List<Offer> getAllOffers() {
         return offerService.getAllOffers();
     }

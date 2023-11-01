@@ -37,7 +37,6 @@ public class Event {
     private Date endDate;
 
     @Column(insertable = false, updatable = false)
-    @JsonIgnore
     private Long locationId;
 
     @Column(length = 2048)
