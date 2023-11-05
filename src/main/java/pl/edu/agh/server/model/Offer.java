@@ -14,11 +14,11 @@ import java.util.Date;
 @Table(name = "offers")
 public class Offer {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "locationId", referencedColumnName = "id")
+    @JoinColumn(name = "locationId", referencedColumnName = "id", insertable = false, updatable = false)
     @JsonIgnore
     private Location location;
 
@@ -30,13 +30,12 @@ public class Offer {
     @JsonIgnore
     protected Date lastModifiedDate;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Date startDate;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Date endDate;
 
-    @Column(insertable = false, updatable = false)
     private Long locationId;
 
     private String description;

@@ -12,6 +12,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class InformationService {
+    private static final String NOT_FOUND_MESSAGE = "Information not found with id: ";
     private final InformationRepository informationRepository;
 
     public List<Information> getInformationList() {
@@ -19,7 +20,9 @@ public class InformationService {
     }
 
     public Information getInformation(long id) {
-        return informationRepository.findById(id).orElse(null);
+        return informationRepository.findById(id).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
+        );
     }
 
     public Information createInformation(Information information) {
@@ -28,7 +31,7 @@ public class InformationService {
 
     public Information updateInformation(long id, Information informationDetails) {
         Information information = informationRepository.findById(id).orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Information not found with id: " + id)
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );
 
         information.setTitle(informationDetails.getTitle());
@@ -39,7 +42,7 @@ public class InformationService {
 
     public Information deleteInformation(long id) {
         Information information = informationRepository.findById(id).orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Information not found with id: " + id)
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );
 
         informationRepository.deleteById(id);

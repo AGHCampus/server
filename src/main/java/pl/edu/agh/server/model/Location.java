@@ -4,7 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import pl.edu.agh.server.service.common.Coordinate;
+import pl.edu.agh.server.common.Coordinate;
+import pl.edu.agh.server.common.LocationRequest;
 
 import java.util.List;
 
@@ -12,18 +13,18 @@ import java.util.List;
 @Table(name = "locations")
 public class Location {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Getter
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @PrimaryKeyJoinColumn
     private LocationDetails locationDetails;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "location")
+    @OneToMany(mappedBy = "location")
     private List<Offer> offers;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "location")
+    @OneToMany(mappedBy = "location")
     private List<Event> events;
 
     @Getter
@@ -52,4 +53,11 @@ public class Location {
     @Getter
     @Setter
     private Coordinate coordinate;
+
+    public void updateFromRequest(LocationRequest locationRequest) {
+        this.name = locationRequest.getName();
+        this.category = locationRequest.getCategory();
+        this.longitude = locationRequest.getCoordinate().getLongitude();
+        this.latitude = locationRequest.getCoordinate().getLatitude();
+    }
 }

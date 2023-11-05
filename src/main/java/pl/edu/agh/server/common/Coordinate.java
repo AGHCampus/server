@@ -1,4 +1,4 @@
-package pl.edu.agh.server.service.common;
+package pl.edu.agh.server.common;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
