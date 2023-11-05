@@ -11,7 +11,7 @@ import java.util.Date;
 @Table(name = "information")
 public class Information {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @CreationTimestamp
