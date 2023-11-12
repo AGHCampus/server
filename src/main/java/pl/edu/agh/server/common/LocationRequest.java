@@ -15,6 +15,7 @@ public class LocationRequest {
     private String openingHours;
     private String phoneNumber;
     private String websiteUrl;
+    private String logoUrl;
     private Coordinate coordinate;
     private List<String> photos;
 }

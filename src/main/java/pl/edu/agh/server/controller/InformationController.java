@@ -14,7 +14,7 @@ import java.util.List;
 public class InformationController {
     private final InformationService informationService;
 
-    @GetMapping(value = "/", produces = "application/json")
+    @GetMapping(value = "", produces = "application/json")
     public List<Information> getInformationList() {
         return informationService.getInformationList();
     }
@@ -24,7 +24,7 @@ public class InformationController {
         return informationService.getInformation(id);
     }
 
-    @PostMapping(value = "/", produces = "application/json")
+    @PostMapping(value = "", produces = "application/json")
     public Information createInformation(@RequestBody Information information) {
         return informationService.createInformation(information);
     }

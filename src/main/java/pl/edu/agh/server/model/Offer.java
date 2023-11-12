@@ -41,4 +41,13 @@ public class Offer {
     private String description;
     private String imageUrl;
     private String websiteUrl;
+
+    public void updateFromRequest(Offer offer) {
+        this.locationId = offer.getLocationId();
+        this.description = offer.getDescription();
+        this.startDate = offer.getStartDate();
+        this.endDate = offer.getEndDate();
+        this.websiteUrl = offer.getWebsiteUrl();
+        this.imageUrl = offer.getImageUrl();
+    }
 }

@@ -8,6 +8,7 @@ import pl.edu.agh.server.model.Offer;
 import pl.edu.agh.server.repostiory.OfferRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -15,7 +16,10 @@ public class OfferService {
     private static final String NOT_FOUND_MESSAGE = "Offer not found with id: ";
     private final OfferRepository offerRepository;
 
-    public List<Offer> getOffersList() {
+    public List<Offer> getOffersList(Optional<Long> locationId) {
+        if (locationId.isPresent()) {
+            return offerRepository.findByLocationIdOrderByStartDateAsc(locationId.get());
+        }
         return offerRepository.findAllByOrderByStartDateAsc();
     }
 
@@ -34,12 +38,7 @@ public class OfferService {
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );
 
-        offer.setLocationId(offerDetails.getLocationId());
-        offer.setDescription(offerDetails.getDescription());
-        offer.setStartDate(offerDetails.getStartDate());
-        offer.setEndDate(offerDetails.getEndDate());
-        offer.setWebsiteUrl(offerDetails.getWebsiteUrl());
-        offer.setImageUrl(offerDetails.getImageUrl());
+        offer.updateFromRequest(offerDetails);
 
         return offerRepository.saveAndFlush(offer);
     }
@@ -52,9 +51,5 @@ public class OfferService {
         offerRepository.deleteById(id);
 
         return offer;
-    }
-
-    public List<Offer> getLocationOffers(long id) {
-        return offerRepository.findByLocationIdOrderByStartDateAsc(id);
     }
 }

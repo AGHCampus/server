@@ -42,4 +42,14 @@ public class Event {
     private String title;
     private String imageUrl;
     private String websiteUrl;
+    
+    public void updateFromRequest(Event event) {
+        this.title = event.getTitle();
+        this.locationId = event.getLocationId();
+        this.description = event.getDescription();
+        this.startDate = event.getStartDate();
+        this.endDate = event.getEndDate();
+        this.websiteUrl = event.getWebsiteUrl();
+        this.imageUrl = event.getImageUrl();
+    }
 }

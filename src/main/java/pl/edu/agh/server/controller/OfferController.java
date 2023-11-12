@@ -6,6 +6,7 @@ import pl.edu.agh.server.model.Offer;
 import pl.edu.agh.server.service.OfferService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("offers")
@@ -14,9 +15,9 @@ import java.util.List;
 public class OfferController {
     private final OfferService offerService;
 
-    @GetMapping(value = "/", produces = "application/json")
-    public List<Offer> getOffersList() {
-        return offerService.getOffersList();
+    @GetMapping(value = "", produces = "application/json")
+    public List<Offer> getOffersList(@RequestParam Optional<Long> locationId) {
+        return offerService.getOffersList(locationId);
     }
 
     @GetMapping(value = "/{id}", produces = "application/json")
@@ -24,7 +25,7 @@ public class OfferController {
         return offerService.getOffer(id);
     }
 
-    @PostMapping(value = "/", produces = "application/json")
+    @PostMapping(value = "", produces = "application/json")
     public Offer createOffer(@RequestBody Offer offer) {
         return offerService.createOffer(offer);
     }

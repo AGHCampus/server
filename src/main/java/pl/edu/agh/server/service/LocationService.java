@@ -49,8 +49,7 @@ public class LocationService {
         LocationDetails locationDetails = new LocationDetails();
 
         location.updateFromRequest(locationRequest);
-        locationDetails.setLocation(location);
-        locationDetails.updateFromRequest(locationRequest);
+        locationDetails.updateFromRequest(location, locationRequest);
 
         locationDetailsRepository.saveAndFlush(locationDetails);
 
@@ -66,8 +65,7 @@ public class LocationService {
         );
 
         location.updateFromRequest(locationRequest);
-        locationDetails.setLocation(location);
-        locationDetails.updateFromRequest(locationRequest);
+        locationDetails.updateFromRequest(location, locationRequest);
 
         locationDetailsRepository.saveAndFlush(locationDetails);
         locationRepository.saveAndFlush(location);

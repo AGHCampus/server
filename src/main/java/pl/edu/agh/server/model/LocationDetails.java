@@ -40,7 +40,8 @@ public class LocationDetails {
     @ElementCollection
     private List<String> photos;
 
-    public void updateFromRequest(LocationRequest locationRequest) {
+    public void updateFromRequest(Location location, LocationRequest locationRequest) {
+        this.location = location;
         this.description = locationRequest.getDescription();
         this.address = locationRequest.getAddress();
         this.openingHours = locationRequest.getOpeningHours();

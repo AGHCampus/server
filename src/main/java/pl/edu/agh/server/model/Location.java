@@ -59,5 +59,6 @@ public class Location {
         this.category = locationRequest.getCategory();
         this.longitude = locationRequest.getCoordinate().getLongitude();
         this.latitude = locationRequest.getCoordinate().getLatitude();
+        this.logoUrl = locationRequest.getLogoUrl();
     }
 }

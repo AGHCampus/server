@@ -8,6 +8,7 @@ import pl.edu.agh.server.model.Event;
 import pl.edu.agh.server.repostiory.EventRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -15,7 +16,10 @@ public class EventService {
     private static final String NOT_FOUND_MESSAGE = "Event not found with id: ";
     private final EventRepository eventRepository;
 
-    public List<Event> getEventsList() {
+    public List<Event> getEventsList(Optional<Long> locationId) {
+        if (locationId.isPresent()) {
+            return eventRepository.findByLocationIdOrderByStartDateAsc(locationId.get());
+        }
         return eventRepository.findAllByOrderByStartDateAsc();
     }
     
@@ -34,13 +38,7 @@ public class EventService {
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );
 
-        event.setTitle(eventDetails.getTitle());
-        event.setLocationId(eventDetails.getLocationId());
-        event.setDescription(eventDetails.getDescription());
-        event.setStartDate(eventDetails.getStartDate());
-        event.setEndDate(eventDetails.getEndDate());
-        event.setWebsiteUrl(eventDetails.getWebsiteUrl());
-        event.setImageUrl(eventDetails.getImageUrl());
+        event.updateFromRequest(eventDetails);
 
         return eventRepository.saveAndFlush(event);
     }
@@ -53,9 +51,5 @@ public class EventService {
         eventRepository.deleteById(id);
 
         return event;
-    }
-
-    public List<Event> getLocationEvents(long id) {
-        return eventRepository.findByLocationIdOrderByStartDateAsc(id);
     }
 }
