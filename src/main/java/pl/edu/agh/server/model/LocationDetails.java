@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.LastModifiedDate;
+import pl.edu.agh.server.common.LocationRequest;
 
 import java.util.Date;
 import java.util.List;
@@ -38,4 +39,14 @@ public class LocationDetails {
 
     @ElementCollection
     private List<String> photos;
+
+    public void updateFromRequest(Location location, LocationRequest locationRequest) {
+        this.location = location;
+        this.description = locationRequest.getDescription();
+        this.address = locationRequest.getAddress();
+        this.openingHours = locationRequest.getOpeningHours();
+        this.phoneNumber = locationRequest.getPhoneNumber();
+        this.websiteUrl = locationRequest.getWebsiteUrl();
+        this.photos = locationRequest.getPhotos();
+    }
 }
