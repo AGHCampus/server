@@ -10,16 +10,16 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import pl.edu.agh.server.common.LoginResponse;
 import pl.edu.agh.server.model.Role;
 import pl.edu.agh.server.model.User;
 import pl.edu.agh.server.repostiory.RoleRepository;
 import pl.edu.agh.server.repostiory.UserRepository;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
+
+import static java.lang.String.format;
 
 @Service
 @RequiredArgsConstructor
@@ -32,21 +32,34 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
     private final TokenService tokenService;
+    private final MailService mailService;
 
-    public User registerUser(User requestUser) {
+    public User registerUser(User requestUser, Optional<String> lang) {
         if (!requestUser.getUsername().endsWith(USER_DOMAIN)) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
         }
 
+        String verificationToken = UUID.randomUUID().toString();
         Set<Role> authorities = createAuthorities(USER_ROLE);
         User newUser = User.builder()
                 .username(requestUser.getUsername())
                 .password(passwordEncoder.encode(requestUser.getPassword()))
                 .nickname(requestUser.getNickname())
                 .authorities(authorities)
+                .token(verificationToken)
                 .build();
 
-        return userRepository.save(newUser);
+        User createdUser = userRepository.save(newUser);
+        createVerificationEmail(createdUser, lang);
+        return createdUser;
+    }
+
+    public void verifyUser(String token) {
+        User user = userRepository.findUserByToken(token).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND)
+        );
+        user.setEnabled(true);
+        userRepository.save(user);
     }
 
     public LoginResponse loginUser(User requestUser) {
@@ -73,5 +86,11 @@ public class AuthenticationService {
         Set<Role> authorities = new HashSet<>();
         authorities.add(role.get());
         return authorities;
+    }
+
+    private void createVerificationEmail(User user, Optional<String> lang) {
+        String homeURL = ServletUriComponentsBuilder.fromCurrentContextPath().toUriString();
+        String verificationUrl = format("%s/auth/verify?token=%s", homeURL, user.getToken());
+        mailService.sendVerificationEmail(lang.orElse(null), user.getUsername(), verificationUrl);
     }
 }

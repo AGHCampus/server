@@ -49,6 +49,10 @@ public class Location {
     @Setter
     private String logoUrl;
 
+    @Getter
+    @Setter
+    private String address;
+
     @Transient
     @Getter
     @Setter
@@ -60,5 +64,6 @@ public class Location {
         this.longitude = locationRequest.getCoordinate().getLongitude();
         this.latitude = locationRequest.getCoordinate().getLatitude();
         this.logoUrl = locationRequest.getLogoUrl();
+        this.address = locationRequest.getAddress();
     }
 }

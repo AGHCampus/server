@@ -34,6 +34,9 @@ public class User implements UserDetails {
     private String password;
 
     @JsonIgnore
+    private String token;
+
+    @JsonIgnore
     private boolean enabled;
 
     @ManyToMany(fetch = FetchType.EAGER)
