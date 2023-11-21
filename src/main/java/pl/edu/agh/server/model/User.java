@@ -34,7 +34,8 @@ public class User implements UserDetails {
     private String password;
 
     @JsonIgnore
-    private String token;
+    @OneToMany(mappedBy = "user")
+    private Set<Token> tokens;
 
     @JsonIgnore
     private boolean enabled;

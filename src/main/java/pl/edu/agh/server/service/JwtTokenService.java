@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class TokenService {
+public class JwtTokenService {
     private final JwtEncoder jwtEncoder;
     private final JwtDecoder jwtDecoder;
 
@@ -23,7 +23,7 @@ public class TokenService {
 
         String scope = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.joining(""));
+                .collect(Collectors.joining(" "));
 
         JwtClaimsSet claimsSet = JwtClaimsSet.builder()
                 .issuer("self")

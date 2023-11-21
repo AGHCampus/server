@@ -1,40 +1,31 @@
 package pl.edu.agh.server.service;
 
-import jakarta.annotation.Nullable;
 import lombok.RequiredArgsConstructor;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import pl.edu.agh.server.common.LocalizedMessages;
 
 import static java.lang.String.format;
 
 @Service
 @RequiredArgsConstructor
 public class MailService {
-    private static final String VERIFICATION_SUBJECT_PL = "Aktywuj swoje konto";
-    private static final String VERIFICATION_SUBJECT_EN = "Activate your account";
-    private static final String VERIFICATION_TEMPLATE_PL = "Link do aktywacji konta: %s";
-    private static final String VERIFICATION_TEMPLATE_EN = "Link for account activation: %s";
-
     private final JavaMailSender mailSender;
 
-    public void sendVerificationEmail(@Nullable String lang, String to, String url) {
-        if (lang == null) {
-            lang = "PL";
-        }
-
-        if (lang.equals("EN")) {
-            sendMessage(VERIFICATION_SUBJECT_EN, VERIFICATION_TEMPLATE_EN, to, url);
-        } else {
-            sendMessage(VERIFICATION_SUBJECT_PL, VERIFICATION_TEMPLATE_PL, to, url);
-        }
+    public void sendVerificationEmail(String lang, String to, String url) {
+       sendMessage(LocalizedMessages.verificationSubject(lang), format(LocalizedMessages.verificationTemplate(lang), url), to);
     }
 
-    private void sendMessage(String subject, String template, String to, String url) {
+    public void sendResetPasswordEmail(String lang, String to, String url) {
+        sendMessage(LocalizedMessages.resetSubject(lang), format(LocalizedMessages.resetTemplate(lang), url), to);
+    }
+
+    private void sendMessage(String subject, String text, String to) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(to);
         message.setSubject(subject);
-        message.setText(format(template, url));
+        message.setText(text);
         mailSender.send(message);
     }
 }
