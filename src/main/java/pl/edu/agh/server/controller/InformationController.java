@@ -2,6 +2,7 @@ package pl.edu.agh.server.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import pl.edu.agh.server.common.InformationRequest;
 import pl.edu.agh.server.model.Information;
 import pl.edu.agh.server.service.InformationService;
 
@@ -14,23 +15,23 @@ public class InformationController {
     private final InformationService informationService;
 
     @GetMapping(value = "", produces = "application/json")
-    public List<Information> getInformationList() {
-        return informationService.getInformationList();
+    public List<Information> getInformationList(@RequestParam String lang) {
+        return informationService.getInformationList(lang);
     }
 
     @GetMapping(value = "/{id}", produces = "application/json")
-    public Information getInformation(@PathVariable long id) {
-        return informationService.getInformation(id);
+    public Information getInformation(@PathVariable long id, @RequestParam String lang) {
+        return informationService.getInformation(id, lang);
     }
 
     @PostMapping(value = "", produces = "application/json")
-    public Information createInformation(@RequestBody Information information) {
-        return informationService.createInformation(information);
+    public Information createInformation(@RequestBody InformationRequest informationRequest) {
+        return informationService.createInformation(informationRequest);
     }
 
     @PutMapping(value = "/{id}", produces = "application/json")
-    public Information updateInformation(@PathVariable long id, @RequestBody Information informationDetails) {
-        return informationService.updateInformation(id, informationDetails);
+    public Information updateInformation(@PathVariable long id, @RequestBody InformationRequest informationRequest) {
+        return informationService.updateInformation(id, informationRequest);
     }
 
     @DeleteMapping(value = "/{id}", produces = "application/json")
