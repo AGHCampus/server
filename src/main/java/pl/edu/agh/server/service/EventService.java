@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+import pl.edu.agh.server.common.EventRequest;
 import pl.edu.agh.server.model.Event;
 import pl.edu.agh.server.repostiory.EventRepository;
 
@@ -16,33 +17,48 @@ public class EventService {
     private static final String NOT_FOUND_MESSAGE = "Event not found with id: ";
     private final EventRepository eventRepository;
 
-    public List<Event> getEventsList(Optional<Long> locationId) {
+    public List<Event> getEventsList(Optional<Long> locationId, String language) {
+        List<Event> events;
         if (locationId.isPresent()) {
-            return eventRepository.findByLocationIdOrderByStartDateAsc(locationId.get());
+            events = eventRepository.findByLocationIdOrderByStartDateAsc(locationId.get());
+        } else {
+            events = eventRepository.findAllByOrderByStartDateAsc();
         }
-        return eventRepository.findAllByOrderByStartDateAsc();
+        events.forEach(event -> {
+            event.setDescription(language);
+            event.setTitle(language);
+        });
+
+        return events;
     }
-    
-    public Event getEvent(long id) {
-        return eventRepository.findById(id).orElseThrow(
+
+    public Event getEvent(long id, String language) {
+        Event event = eventRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );
+        event.setDescription(language);
+        event.setTitle(language);
+
+        return event;
     }
-    
-    public Event createEvent(Event event) {
+
+    public Event createEvent(EventRequest eventRequest) {
+        Event event = new Event();
+        event.updateFromRequest(eventRequest);
+
         return eventRepository.saveAndFlush(event);
     }
-    
-    public Event updateEvent(long id, Event eventDetails) {
+
+    public Event updateEvent(long id, EventRequest eventRequest) {
         Event event = eventRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );
 
-        event.updateFromRequest(eventDetails);
+        event.updateFromRequest(eventRequest);
 
         return eventRepository.saveAndFlush(event);
     }
-    
+
     public Event deleteEvent(long id) {
         Event event = eventRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
