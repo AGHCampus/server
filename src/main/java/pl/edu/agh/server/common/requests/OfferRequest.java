@@ -1,4 +1,4 @@
-package pl.edu.agh.server.common;
+package pl.edu.agh.server.common.requests;
 
 import lombok.Getter;
 import lombok.Setter;

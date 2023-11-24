@@ -12,8 +12,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import pl.edu.agh.server.common.ChangePasswordRequest;
 import pl.edu.agh.server.common.LoginResponse;
+import pl.edu.agh.server.common.requests.ChangePasswordRequest;
 import pl.edu.agh.server.model.Role;
 import pl.edu.agh.server.model.Token;
 import pl.edu.agh.server.model.User;
@@ -63,6 +63,7 @@ public class AuthenticationService {
         Token createdToken = tokenRepository.save(verificationToken);
 
         createVerificationEmail(createdToken, createdUser, lang);
+
         return createdUser;
     }
 
@@ -143,6 +144,7 @@ public class AuthenticationService {
 
         Set<Role> authorities = new HashSet<>();
         authorities.add(role.get());
+
         return authorities;
     }
 

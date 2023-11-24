@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import pl.edu.agh.server.common.Coordinate;
-import pl.edu.agh.server.common.LocationRequest;
+import pl.edu.agh.server.common.requests.LocationRequest;
 import pl.edu.agh.server.model.Location;
 import pl.edu.agh.server.model.LocationDetails;
 import pl.edu.agh.server.repostiory.EventRepository;

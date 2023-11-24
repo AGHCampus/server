@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.edu.agh.server.common.ChangePasswordRequest;
 import pl.edu.agh.server.common.LocalizedMessages;
 import pl.edu.agh.server.common.LoginResponse;
+import pl.edu.agh.server.common.requests.ChangePasswordRequest;
 import pl.edu.agh.server.model.User;
 import pl.edu.agh.server.service.AuthenticationService;
 

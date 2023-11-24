@@ -2,7 +2,7 @@ package pl.edu.agh.server.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import pl.edu.agh.server.common.OfferRequest;
+import pl.edu.agh.server.common.requests.OfferRequest;
 import pl.edu.agh.server.model.Offer;
 import pl.edu.agh.server.service.OfferService;
 

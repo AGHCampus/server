@@ -2,7 +2,7 @@ package pl.edu.agh.server.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import pl.edu.agh.server.common.EventRequest;
+import pl.edu.agh.server.common.requests.EventRequest;
 import pl.edu.agh.server.model.Event;
 import pl.edu.agh.server.service.EventService;
 

@@ -1,7 +1,8 @@
-package pl.edu.agh.server.common;
+package pl.edu.agh.server.common.requests;
 
 import lombok.Getter;
 import lombok.Setter;
+import pl.edu.agh.server.common.Coordinate;
 
 import java.util.List;
 import java.util.Map;

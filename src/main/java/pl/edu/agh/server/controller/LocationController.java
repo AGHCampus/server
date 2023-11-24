@@ -2,7 +2,7 @@ package pl.edu.agh.server.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import pl.edu.agh.server.common.LocationRequest;
+import pl.edu.agh.server.common.requests.LocationRequest;
 import pl.edu.agh.server.model.Location;
 import pl.edu.agh.server.model.LocationDetails;
 import pl.edu.agh.server.service.LocationDetailsService;

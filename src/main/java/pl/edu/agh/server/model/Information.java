@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 import org.hibernate.annotations.CreationTimestamp;
-import pl.edu.agh.server.common.InformationRequest;
+import pl.edu.agh.server.common.requests.InformationRequest;
 
 import java.util.Date;
 import java.util.HashMap;

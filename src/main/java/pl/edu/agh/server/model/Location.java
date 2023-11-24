@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
 import pl.edu.agh.server.common.Coordinate;
-import pl.edu.agh.server.common.LocationRequest;
+import pl.edu.agh.server.common.requests.LocationRequest;
 
 import java.util.HashMap;
 import java.util.List;

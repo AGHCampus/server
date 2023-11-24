@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import pl.edu.agh.server.common.InformationRequest;
+import pl.edu.agh.server.common.requests.InformationRequest;
 import pl.edu.agh.server.model.Information;
 import pl.edu.agh.server.repostiory.InformationRepository;
 

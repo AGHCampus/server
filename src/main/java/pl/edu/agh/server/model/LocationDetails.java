@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.LastModifiedDate;
-import pl.edu.agh.server.common.LocationRequest;
+import pl.edu.agh.server.common.requests.LocationRequest;
 
 import java.util.Date;
 import java.util.HashMap;
