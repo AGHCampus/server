@@ -25,7 +25,6 @@ public class LocationDetails {
 
     private String phoneNumber;
     private String websiteUrl;
-    private String address;
     private String description;
     private String openingHours;
 
@@ -43,7 +42,6 @@ public class LocationDetails {
     public void updateFromRequest(Location location, LocationRequest locationRequest) {
         this.location = location;
         this.description = locationRequest.getDescription();
-        this.address = locationRequest.getAddress();
         this.openingHours = locationRequest.getOpeningHours();
         this.phoneNumber = locationRequest.getPhoneNumber();
         this.websiteUrl = locationRequest.getWebsiteUrl();
