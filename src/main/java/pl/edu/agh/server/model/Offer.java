@@ -4,14 +4,19 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.extern.log4j.Log4j2;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.LastModifiedDate;
+import pl.edu.agh.server.common.OfferRequest;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Entity
 @Data
 @Table(name = "offers")
+@Log4j2
 public class Offer {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -28,7 +33,7 @@ public class Offer {
 
     @LastModifiedDate
     @JsonIgnore
-    protected Date lastModifiedDate;
+    private Date lastModifiedDate;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Date startDate;
@@ -38,16 +43,32 @@ public class Offer {
 
     private Long locationId;
 
+    @ElementCollection
+    @JsonIgnore
+    private Map<String, String> descriptionTranslations = new HashMap<>();
+
+    @Transient
     private String description;
+
     private String imageUrl;
     private String websiteUrl;
 
-    public void updateFromRequest(Offer offer) {
-        this.locationId = offer.getLocationId();
-        this.description = offer.getDescription();
-        this.startDate = offer.getStartDate();
-        this.endDate = offer.getEndDate();
-        this.websiteUrl = offer.getWebsiteUrl();
-        this.imageUrl = offer.getImageUrl();
+    public void updateFromRequest(OfferRequest offerRequest) {
+        this.locationId = offerRequest.getLocationId();
+        this.descriptionTranslations.putAll(offerRequest.getDescriptionTranslations());
+        this.startDate = offerRequest.getStartDate();
+        this.endDate = offerRequest.getEndDate();
+        this.websiteUrl = offerRequest.getWebsiteUrl();
+        this.imageUrl = offerRequest.getImageUrl();
+    }
+
+    public void setDescription(String language) {
+        String description = descriptionTranslations.get(language);
+
+        if (description == null) {
+            log.error("Language {} not found for description with offer id {}.", language.toUpperCase(), id);
+        }
+
+        this.description = description;
     }
 }
