@@ -4,13 +4,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
 public class LocationRequest {
-    private String name;
+    private Map<String, String> nameTranslations;
     private String category;
-    private String description;
+    private Map<String, String> descriptionTranslations;
     private String address;
     private String openingHours;
     private String phoneNumber;

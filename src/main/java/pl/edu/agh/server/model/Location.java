@@ -4,11 +4,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.log4j.Log4j2;
 import pl.edu.agh.server.common.Coordinate;
 import pl.edu.agh.server.common.LocationRequest;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+@Log4j2
 @Entity
 @Table(name = "locations")
 public class Location {
@@ -28,8 +32,12 @@ public class Location {
     private List<Event> events;
 
     @Getter
-    @Setter
+    @Transient
     private String name;
+
+    @ElementCollection
+    @JsonIgnore
+    private Map<String, String> nameTranslations = new HashMap<>();
 
     @Getter
     @Setter
@@ -59,11 +67,21 @@ public class Location {
     private Coordinate coordinate;
 
     public void updateFromRequest(LocationRequest locationRequest) {
-        this.name = locationRequest.getName();
+        this.nameTranslations.putAll(locationRequest.getNameTranslations());
         this.category = locationRequest.getCategory();
         this.longitude = locationRequest.getCoordinate().getLongitude();
         this.latitude = locationRequest.getCoordinate().getLatitude();
         this.logoUrl = locationRequest.getLogoUrl();
         this.address = locationRequest.getAddress();
+    }
+
+    public void setName(String language) {
+        String name = nameTranslations.get(language);
+
+        if (name == null) {
+            log.error("Language {} not found for location name with location id {}.", language.toUpperCase(), id);
+        }
+
+        this.name = name;
     }
 }
