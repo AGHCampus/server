@@ -32,6 +32,7 @@ public class LocationDetails {
 
     @ElementCollection
     @JsonIgnore
+    @Column(length = 2048)
     private Map<String, String> descriptionTranslations = new HashMap<>();
 
     @Transient

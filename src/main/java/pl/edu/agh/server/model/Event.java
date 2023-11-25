@@ -44,6 +44,7 @@ public class Event {
 
     @ElementCollection
     @JsonIgnore
+    @Column(length = 2048)
     private Map<String, String> descriptionTranslations = new HashMap<>();
 
     @Column(length = 2048)

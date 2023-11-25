@@ -25,6 +25,7 @@ public class Information {
 
     @ElementCollection
     @JsonIgnore
+    @Column(length = 2048)
     private Map<String, String> contentTranslations = new HashMap<>();
 
     @ElementCollection
