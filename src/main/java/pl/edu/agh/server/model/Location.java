@@ -69,8 +69,10 @@ public class Location {
     public void updateFromRequest(LocationRequest locationRequest) {
         this.nameTranslations.putAll(locationRequest.getNameTranslations());
         this.category = locationRequest.getCategory();
-        this.longitude = locationRequest.getCoordinate().getLongitude();
-        this.latitude = locationRequest.getCoordinate().getLatitude();
+        if (locationRequest.getCoordinate() != null) {
+            this.longitude = locationRequest.getCoordinate().getLongitude();
+            this.latitude = locationRequest.getCoordinate().getLatitude();
+        }
         this.logoUrl = locationRequest.getLogoUrl();
         this.address = locationRequest.getAddress();
     }
