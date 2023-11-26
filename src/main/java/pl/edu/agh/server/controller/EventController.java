@@ -26,8 +26,8 @@ public class EventController {
     }
 
     @PostMapping(value = "", produces = "application/json")
-    public Event createEvent(@RequestBody EventRequest eventDetails) {
-        return eventService.createEvent(eventDetails);
+    public Event createEvent(@RequestBody EventRequest eventRequest) {
+        return eventService.createEvent(eventRequest);
     }
 
     @PutMapping(value = "/{id}", produces = "application/json")
