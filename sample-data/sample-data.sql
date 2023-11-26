@@ -579,3 +579,15 @@ INSERT INTO public.roles (id, authority)
 VALUES (2, 'USER');
 INSERT INTO public.roles (id, authority)
 VALUES (1, 'ADMIN');
+
+--private_events
+INSERT INTO public.private_events (id, description, end_date, image_url, last_modified_date, latitude, longitude,
+                                   start_date, timestamp, title)
+VALUES (1, 'Grill dla wszystkich :) zapraszam!', null,
+        'https://f01.esfr.pl/files/storage/article/photo/47/eb/bb/643c994461a6e078127069bde2/shutterstock_1722079528%20(5).png',
+        null, 50.06871, 19.90623, '2024-05-26 12:00:00.000000', '2023-11-26 01:13:43.000000', 'grillowanie :)');
+INSERT INTO public.private_events (id, description, end_date, image_url, last_modified_date, latitude, longitude,
+                                   start_date, timestamp, title)
+VALUES (2, 'Zapraszam wszystkich chętnych do zagrania w piłkę na orliku. Obowiązuje strój sportowy :))',
+        '2023-11-26 14:00:00.000000', null, null, 50.06816, 19.90444, '2023-11-26 12:15:00.000000',
+        '2023-11-26 01:16:11.000000', 'Mecz na orliku.');
