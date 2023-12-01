@@ -200,7 +200,7 @@ INSERT INTO public.location_details_description_translations (location_details_i
                                                               description_translations_key)
 VALUES (2,
         'Student club in Krakow administered by the AGH University of Science and Technology Students and Graduates Foundation „Academica”',
-        'eng');
+        'en');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
 VALUES (3,
@@ -210,7 +210,7 @@ INSERT INTO public.location_details_description_translations (location_details_i
                                                               description_translations_key)
 VALUES (3,
         'Zascianek Club is a Krakow legend. Many artists perform on the club''s stage with music full of rock sounds - ballad, punk rock and black metal. Many artists started their adventure with music on the club''s stage, including: IRA or Coma.',
-        'eng');
+        'en');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
 VALUES (5,
@@ -220,153 +220,153 @@ INSERT INTO public.location_details_description_translations (location_details_i
                                                               description_translations_key)
 VALUES (5,
         'The FILUTEK Club at the AGH Student Campus is an ideal place to meet friends. The club''s offer includes ten types of pizza, several types of coffee, a wide range of drinks and snacks such as foccacia and cheese sticks. Filutek''s advantage is its decor, th',
-        'eng');
+        'en');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
 VALUES (14, 'Bardzo smaczne sushi!', 'pl');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
-VALUES (14, 'Very tasty sushi!', 'eng');
+VALUES (14, 'Very tasty sushi!', 'en');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
 VALUES (6, 'DS 3 - jeden z akademików na miasteczku akademickim AGH.', 'pl');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
-VALUES (6, 'DS 3 - one of the dormitories at the AGH campus.', 'eng');
+VALUES (6, 'DS 3 - one of the dormitories at the AGH campus.', 'en');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
 VALUES (10, 'DS 14 - jeden z akademików na miasteczku akademickim AGH.', 'pl');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
-VALUES (10, 'DS 14 - one of the dormitories at the AGH campus.', 'eng');
+VALUES (10, 'DS 14 - one of the dormitories at the AGH campus.', 'en');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
 VALUES (8, 'DS 2 - jeden z akademików na miasteczku akademickim AGH.', 'pl');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
-VALUES (8, 'DS 2 - one of the dormitories at the AGH campus.', 'eng');
+VALUES (8, 'DS 2 - one of the dormitories at the AGH campus.', 'en');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
 VALUES (7, 'DS 1 - jeden z akademików na miasteczku akademickim AGH.', 'pl');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
-VALUES (7, 'DS 1 - one of the dormitories at the AGH campus.', 'eng');
+VALUES (7, 'DS 1 - one of the dormitories at the AGH campus.', 'en');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
 VALUES (20, 'Główny budynek Wydziału Informatyki - D17.', 'pl');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
-VALUES (20, 'The main building of the Faculty of Computer Science - D17.', 'eng');
+VALUES (20, 'The main building of the Faculty of Computer Science - D17.', 'en');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
 VALUES (17, 'Bardzo popularna stołówka dla studentów z korzystnymi cenami i bogatą ofertą obiadową.', 'pl');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
-VALUES (17, 'A very popular canteen for students with affordable prices and a wide lunch offer.', 'eng');
+VALUES (17, 'A very popular canteen for students with affordable prices and a wide lunch offer.', 'en');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
 VALUES (18, 'Główny budynek Wydziału Inżynierii Mechanicznej i Robotyki.', 'pl');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
-VALUES (18, 'The main building of the Faculty of Mechanical Engineering and Robotics.', 'eng');
+VALUES (18, 'The main building of the Faculty of Mechanical enineering and Robotics.', 'en');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
 VALUES (21, 'Główny budynek Wydziału Matematyki Stosowanej - B-7.', 'pl');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
-VALUES (21, 'Main building of the Faculty of Applied Mathematics - B-7.', 'eng');
+VALUES (21, 'Main building of the Faculty of Applied Mathematics - B-7.', 'en');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
 VALUES (22, 'Bardzo popularny i tani kebab obok Wydziału Informatyki. Studenci to uwielbiają!', 'pl');
 INSERT INTO public.location_details_description_translations (location_details_id, description_translations,
                                                               description_translations_key)
-VALUES (22, 'A very popular and cheap kebab next to the Faculty of Computer Science. Students love it!', 'eng');
+VALUES (22, 'A very popular and cheap kebab next to the Faculty of Computer Science. Students love it!', 'en');
 
 --location_name_translations
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
 VALUES (2, 'Klub Studio', 'pl');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
-VALUES (2, 'Studio Club', 'eng');
+VALUES (2, 'Studio Club', 'en');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
 VALUES (3, 'Klub Zaścianek', 'pl');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
-VALUES (3, 'Zascianek Club', 'eng');
+VALUES (3, 'Zascianek Club', 'en');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
 VALUES (4, 'Klub Gwarek', 'pl');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
-VALUES (4, 'Gwarek Club', 'eng');
+VALUES (4, 'Gwarek Club', 'en');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
 VALUES (5, 'Klub Filutek', 'pl');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
-VALUES (5, 'Filutek Club', 'eng');
+VALUES (5, 'Filutek Club', 'en');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
 VALUES (6, 'Akropol ', 'pl');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
-VALUES (6, 'Akropol - Student Dormitory', 'eng');
+VALUES (6, 'Akropol - Student Dormitory', 'en');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
 VALUES (7, 'Olimp ', 'pl');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
-VALUES (7, 'Olimp - Student Dormitory', 'eng');
+VALUES (7, 'Olimp - Student Dormitory', 'en');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
 VALUES (8, 'Babilon', 'pl');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
-VALUES (8, 'Babilon - Student Dormitory', 'eng');
+VALUES (8, 'Babilon - Student Dormitory', 'en');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
 VALUES (9, 'Stokrotka', 'pl');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
-VALUES (9, 'Stokrotka - Student Dormitory', 'eng');
+VALUES (9, 'Stokrotka - Student Dormitory', 'en');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
 VALUES (10, 'Kapitol', 'pl');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
-VALUES (10, 'Kapitol - Student Dormitory', 'eng');
+VALUES (10, 'Kapitol - Student Dormitory', 'en');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
 VALUES (11, 'Hajduczek', 'pl');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
-VALUES (11, 'Hajduczek - Student Dormitory', 'eng');
+VALUES (11, 'Hajduczek - Student Dormitory', 'en');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
 VALUES (12, 'Straszny Dwór', 'pl');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
-VALUES (12, 'Straszny Dwor - Student Dormitory', 'eng');
+VALUES (12, 'Straszny Dwor - Student Dormitory', 'en');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
 VALUES (13, 'Omega', 'pl');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
-VALUES (13, 'Omega - Student Dormitory', 'eng');
+VALUES (13, 'Omega - Student Dormitory', 'en');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
 VALUES (14, 'Sushi 77', 'pl');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
-VALUES (14, 'Sushi 77', 'eng');
+VALUES (14, 'Sushi 77', 'en');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
 VALUES (15, 'Sticky Fingers Pizzeria', 'pl');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
-VALUES (15, 'Sticky Fingers Pizzeria', 'eng');
+VALUES (15, 'Sticky Fingers Pizzeria', 'en');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
 VALUES (16, 'Restauracja Kavior', 'pl');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
-VALUES (16, 'Kavior Restaurant', 'eng');
+VALUES (16, 'Kavior Restaurant', 'en');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
 VALUES (17, 'Stołówka Studencka "Pod Babilonem"', 'pl');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
-VALUES (17, 'Student Canteen "Pod Babilonem"', 'eng');
+VALUES (17, 'Student Canteen "Pod Babilonem"', 'en');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
 VALUES (18, 'Wydział Inżynierii Mechanicznej i Robotyki', 'pl');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
-VALUES (18, 'Faculty of Mechanical Engineering and Robotics', 'eng');
+VALUES (18, 'Faculty of Mechanical enineering and Robotics', 'en');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
 VALUES (19, 'Wydział Energetyki i Paliw D4', 'pl');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
-VALUES (19, 'Faculty of Energy and Fuels D4', 'eng');
+VALUES (19, 'Faculty of Energy and Fuels D4', 'en');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
 VALUES (20, 'Centrum Informatyki D-17', 'pl');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
-VALUES (20, 'Computer Science Center D-17', 'eng');
+VALUES (20, 'Computer Science Center D-17', 'en');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
 VALUES (21, 'Wydział Matematyki Stosowanej B-7', 'pl');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
-VALUES (21, 'Faculty of Applied Mathematics B-7', 'eng');
+VALUES (21, 'Faculty of Applied Mathematics B-7', 'en');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
 VALUES (22, 'Ali Baba Król Kebaba', 'pl');
 INSERT INTO public.location_name_translations (location_id, name_translations, name_translations_key)
-VALUES (22, 'Ali Baba King of Kebab', 'eng');
+VALUES (22, 'Ali Baba King of Kebab', 'en');
 
 --offers
 INSERT INTO public.offers (id, end_date, image_url, last_modified_date, location_id, start_date, timestamp, website_url)
@@ -400,23 +400,23 @@ VALUES (6, 'Lunch dnia 5 zł taniej dla studentów Wydziału Informatyki.', 'pl'
 INSERT INTO public.offer_description_translations (offer_id, description_translations, description_translations_key)
 VALUES (4, 'Duży kebab w cenie średniego dla wszystkich studentów AGH.', 'pl');
 INSERT INTO public.offer_description_translations (offer_id, description_translations, description_translations_key)
-VALUES (2, '-20% on ROLLO kebab for students', 'eng');
+VALUES (2, '-20% on ROLLO kebab for students', 'en');
 INSERT INTO public.offer_description_translations (offer_id, description_translations, description_translations_key)
 VALUES (6, 'Lunch of the day is PLN 5 cheaper for students of the Faculty of Computer Science.
-', 'eng');
+', 'en');
 INSERT INTO public.offer_description_translations (offer_id, description_translations, description_translations_key)
-VALUES (3, 'For orders over PLN 100, an additional sushi roll with cucumber is free!', 'eng');
+VALUES (3, 'For orders over PLN 100, an additional sushi roll with cucumber is free!', 'en');
 INSERT INTO public.offer_description_translations (offer_id, description_translations, description_translations_key)
 VALUES (2, '-20% na kebaba ROLLO dla studentów', 'pl');
 INSERT INTO public.offer_description_translations (offer_id, description_translations, description_translations_key)
-VALUES (1, '-50% on all dishes from the student menu', 'eng');
+VALUES (1, '-50% on all dishes from the student menu', 'en');
 INSERT INTO public.offer_description_translations (offer_id, description_translations, description_translations_key)
 VALUES (4, '
-A large kebab at the price of a medium kebab for all AGH students.', 'eng');
+A large kebab at the price of a medium kebab for all AGH students.', 'en');
 INSERT INTO public.offer_description_translations (offer_id, description_translations, description_translations_key)
 VALUES (5, '-50% na wszystkie potrawy w menu dla studentów', 'pl');
 INSERT INTO public.offer_description_translations (offer_id, description_translations, description_translations_key)
-VALUES (5, '-50% on all dishes from the student menu', 'eng');
+VALUES (5, '-50% on all dishes from the student menu', 'en');
 INSERT INTO public.offer_description_translations (offer_id, description_translations, description_translations_key)
 VALUES (1, '-50% na wszystkie potrawy w menu dla studentów', 'pl');
 INSERT INTO public.offer_description_translations (offer_id, description_translations, description_translations_key)
@@ -454,31 +454,31 @@ VALUES (7, '2023-07-28 04:00:00.000000',
 INSERT INTO public.event_title_translations (event_id, title_translations, title_translations_key)
 VALUES (1, 'TED Talk AGH', 'pl');
 INSERT INTO public.event_title_translations (event_id, title_translations, title_translations_key)
-VALUES (1, 'TED Talk AGH', 'eng');
+VALUES (1, 'TED Talk AGH', 'en');
 INSERT INTO public.event_title_translations (event_id, title_translations, title_translations_key)
 VALUES (2, 'Juwenalia AGH', 'pl');
 INSERT INTO public.event_title_translations (event_id, title_translations, title_translations_key)
-VALUES (2, 'Juwenalia AGH', 'eng');
+VALUES (2, 'Juwenalia AGH', 'en');
 INSERT INTO public.event_title_translations (event_id, title_translations, title_translations_key)
 VALUES (3, 'Dzień ryby', 'pl');
 INSERT INTO public.event_title_translations (event_id, title_translations, title_translations_key)
-VALUES (3, 'Fish day', 'eng');
+VALUES (3, 'Fish day', 'en');
 INSERT INTO public.event_title_translations (event_id, title_translations, title_translations_key)
 VALUES (4, 'Tokio Hotel BEYOND THE WORLD TOUR 2023', 'pl');
 INSERT INTO public.event_title_translations (event_id, title_translations, title_translations_key)
-VALUES (4, 'Tokio Hotel BEYOND THE WORLD TOUR 2023', 'eng');
+VALUES (4, 'Tokio Hotel BEYOND THE WORLD TOUR 2023', 'en');
 INSERT INTO public.event_title_translations (event_id, title_translations, title_translations_key)
 VALUES (5, 'Wydziałówka WI', 'pl');
 INSERT INTO public.event_title_translations (event_id, title_translations, title_translations_key)
-VALUES (5, 'Party of the Faculty of Computer Science', 'eng');
+VALUES (5, 'Party of the Faculty of Computer Science', 'en');
 INSERT INTO public.event_title_translations (event_id, title_translations, title_translations_key)
 VALUES (6, 'JUWENALIOWE DISCO WITH THE STARS', 'pl');
 INSERT INTO public.event_title_translations (event_id, title_translations, title_translations_key)
-VALUES (6, 'JUWENALIOWE DISCO WITH THE STARS', 'eng');
+VALUES (6, 'JUWENALIOWE DISCO WITH THE STARS', 'en');
 INSERT INTO public.event_title_translations (event_id, title_translations, title_translations_key)
 VALUES (7, 'Studencki Czwartek', 'pl');
 INSERT INTO public.event_title_translations (event_id, title_translations, title_translations_key)
-VALUES (7, 'Student Thursday', 'eng');
+VALUES (7, 'Student Thursday', 'en');
 
 --event_description_translations
 INSERT INTO public.event_description_translations (event_id, description_translations, description_translations_key)
@@ -486,7 +486,7 @@ VALUES (1, 'TED – marka konferencji naukowych organizowanych corocznie przez a
 Tym razem pojawią się na AGH! Serdecznie zapraszamy.', 'pl');
 INSERT INTO public.event_description_translations (event_id, description_translations, description_translations_key)
 VALUES (1, 'TED Conferences is an American-Canadian non-profit media organization that posts international talks online for free distribution under the slogan "ideas worth spreading".
-This time they will appear at AGH! We cordially invite you!', 'eng');
+This time they will appear at AGH! We cordially invite you!', 'en');
 INSERT INTO public.event_description_translations (event_id, description_translations, description_translations_key)
 VALUES (2, 'Jedna z największych imprez muzycznych  w stolicy Małopolski.  W 2024 odbędą się one w dniach 16-26 maja.
 Na 4 strefach rozrzuconych po Krakowie studenci będą mieli okazję do usłyszenia swoich ulubionych artystów na żywo, rywalizacji podczas różnych konku',
@@ -494,11 +494,11 @@ Na 4 strefach rozrzuconych po Krakowie studenci będą mieli okazję do usłysze
 INSERT INTO public.event_description_translations (event_id, description_translations, description_translations_key)
 VALUES (2, 'One of the largest music events in the capital of Małopolska. In 2024, they will be held on May 16-26.
 In 4 zones scattered around Krakow, students will have the opportunity to hear their favorite artists live, compete in various sports competitions, or i',
-        'eng');
+        'en');
 INSERT INTO public.event_description_translations (event_id, description_translations, description_translations_key)
 VALUES (3, 'Rozmaite gatunki egzotycznych ryb tylko u nas. Zapraszamy!', 'pl');
 INSERT INTO public.event_description_translations (event_id, description_translations, description_translations_key)
-VALUES (3, 'Various species of exotic fish only here. We invite you!', 'eng');
+VALUES (3, 'Various species of exotic fish only here. We invite you!', 'en');
 INSERT INTO public.event_description_translations (event_id, description_translations, description_translations_key)
 VALUES (4,
         'Już 22 maja na jedynym koncercie w Polsce wystąpi niemiecka grupa Tokio Hotel. Ze względów logistycznych koncert ten odbędzie się w innym miejscu, zamiast w katowickim MCKu zespół zagra w krakowskim Klubie Studio. Przepraszamy za wszelkie niedogodności wynikające ze zmiany lokalizacji koncertu i jednocześnie informujemy, że wszystkie bilety zakupione na koncert, który pierwotnie miał odbyć się w 2021 roku, a także w nowym terminie w 2022 i 2023 w katowickim MCKu, zachowują swoją ważność na występ zespołu w krakowskim Klubie Studio. Osoby, które z różnych przyczyn będą chciały zwrócić bilet na to wydarzenie, będą mogły to uczynić w punktach, w których taki bilet zakupiły.',
@@ -506,7 +506,7 @@ VALUES (4,
 INSERT INTO public.event_description_translations (event_id, description_translations, description_translations_key)
 VALUES (4,
         'On May 22, the German group Tokio Hotel will perform their only concert in Poland. Due to logistical reasons, this concert will take place in a different place; instead of the MCK in Katowice, the band will play in the Studio Club in Krakow. We apologize for any inconvenience caused by the change of location of the concert and at the same time we would like to inform you that all tickets purchased for the concert, which was originally supposed to take place in 2021, as well as on the new dates in 2022 and 2023 at the MCK in Katowice, remain valid for the band''s performance in Krakow. Studio Club. People who, for various reasons, want to return a ticket for this event will be able to do so at the points where they purchased the ticket.',
-        'eng');
+        'en');
 INSERT INTO public.event_description_translations (event_id, description_translations, description_translations_key)
 VALUES (5,
         'Zapraszamy wszystkich na imprezową noc! Wydziałówka WI to coś na co wszyscy czekają! Tej nocy dobrą zabawę zapewni nam DJ antybiotyk!',
@@ -514,7 +514,7 @@ VALUES (5,
 INSERT INTO public.event_description_translations (event_id, description_translations, description_translations_key)
 VALUES (5,
         'We invite everyone to a party night! Party of the Faculty of Computer Science is something everyone is waiting for! DJ Antibiotic will provide us with great fun that night!',
-        'eng');
+        'en');
 INSERT INTO public.event_description_translations (event_id, description_translations, description_translations_key)
 VALUES (6,
         'Po występach Juwenaliowych 17 maja zapraszamy Was na jedyne i niepowtarzalne afterparty, czyli ✨ JUWENALIOWE DISCO WITH THE STARS ✨ w Klubie Studio Jego główną gwiazdą będzie Gromee! 😎',
@@ -522,7 +522,7 @@ VALUES (6,
 INSERT INTO public.event_description_translations (event_id, description_translations, description_translations_key)
 VALUES (6,
         'After the Juwenalia performances on May 17, we invite you to a unique afterparty, i.e. the ✨ JUWENALIOWE DISCO WITH THE STARS ✨ at the Studio Club. Its main star will be Gromee! 😎',
-        'eng');
+        'en');
 INSERT INTO public.event_description_translations (event_id, description_translations, description_translations_key)
 VALUES (7,
         'W najbliższy czwartek zapraszamy wszystkich studentów na miasteczko AGH. Szykuje się niezapomniane wydarzenie, a świetną zabawę dostarczać będzie uwielbiana przez studentów Beata Kozidrak!Nie może was tam zabraknąć!',
@@ -530,7 +530,7 @@ VALUES (7,
 INSERT INTO public.event_description_translations (event_id, description_translations, description_translations_key)
 VALUES (7,
         'This Thursday we invite all students to the AGH campus. An unforgettable event is coming up, and Beata Kozidrak, beloved by students, will provide great fun!You can''t miss it!',
-        'eng');
+        'en');
 
 --information
 INSERT INTO public.information (id, timestamp)
@@ -544,7 +544,7 @@ VALUES (3, '2023-11-25 19:48:38.000000');
 INSERT INTO public.information_content_translations (information_id, content_translations, content_translations_key)
 VALUES (1, 'W dniach 2 i 3 listopada godziny rektorskie od godziny 08:00.', 'pl');
 INSERT INTO public.information_content_translations (information_id, content_translations, content_translations_key)
-VALUES (1, 'On November 2 and 3, the rector''s hours are from 08:00.', 'eng');
+VALUES (1, 'On November 2 and 3, the rector''s hours are from 08:00.', 'en');
 INSERT INTO public.information_content_translations (information_id, content_translations, content_translations_key)
 VALUES (2,
         'Nabór wniosków o przyznanie stypendium za wysoką średnią ocen w minionym semestrze potrwa do 30 listopada. Więcej informacji na platformie USOS.',
@@ -552,13 +552,13 @@ VALUES (2,
 INSERT INTO public.information_content_translations (information_id, content_translations, content_translations_key)
 VALUES (2,
         'The call for applications for a scholarship for a high average grade in the past semester will last until November 30. More information on the USOS platform.',
-        'eng');
+        'en');
 INSERT INTO public.information_content_translations (information_id, content_translations, content_translations_key)
 VALUES (3, 'W dniach 04.12.23 - 06.01.24 przy ulicy Witolda Budryka 2 obok akademika Kapitol będzie przeprowadzany remont parkingu. Z tego powodu dostępność miejsc parkingowych będzie ograniczona.
 Za wszelkie niedogodności przepraszamy.', 'pl');
 INSERT INTO public.information_content_translations (information_id, content_translations, content_translations_key)
 VALUES (3, 'From 04/12/23 to 06/01/24, the parking lot will be renovated at 2 Witolda Budryka Street, next to the Kapitol dormitory. Due to this, parking availability will be limited.
-We apologize for any inconvenience.', 'eng');
+We apologize for any inconvenience.', 'en');
 
 --information_title_translations
 INSERT INTO public.information_title_translations (information_id, title_translations, title_translations_key)
@@ -566,19 +566,27 @@ VALUES (2, 'Stypendium za wysoką średnią ocen', 'pl');
 INSERT INTO public.information_title_translations (information_id, title_translations, title_translations_key)
 VALUES (1, 'Godziny rektorskie', 'pl');
 INSERT INTO public.information_title_translations (information_id, title_translations, title_translations_key)
-VALUES (1, 'Rector''s hours', 'eng');
+VALUES (1, 'Rector''s hours', 'en');
 INSERT INTO public.information_title_translations (information_id, title_translations, title_translations_key)
-VALUES (2, 'Scholarship for high grade average', 'eng');
+VALUES (2, 'Scholarship for high grade average', 'en');
 INSERT INTO public.information_title_translations (information_id, title_translations, title_translations_key)
 VALUES (3, 'Remont parkingu przy akademiku Kapitol', 'pl');
 INSERT INTO public.information_title_translations (information_id, title_translations, title_translations_key)
-VALUES (3, 'Parking lot renovation next to Kapitol dormitory.', 'eng');
+VALUES (3, 'Parking lot renovation next to Kapitol dormitory.', 'en');
 
 --roles
 INSERT INTO public.roles (id, authority)
 VALUES (2, 'USER');
 INSERT INTO public.roles (id, authority)
 VALUES (1, 'ADMIN');
+
+--users
+INSERT INTO public.users(id, enabled, nickname, password, username)
+VALUES (1, true, 'admin', '$2a$10$SYW1g5cXvoBg4fHL9HttPuGaRIwr480m25FKA/Zw1iyQ67vuClJWK', 'admin@agh.edu.pl');
+
+--users_roles
+INSERT INTO public.users_roles(user_id, role_id)
+VALUES (1, 1);
 
 --private_events
 INSERT INTO public.private_events (id, description, end_date, image_url, last_modified_date, latitude, longitude,
