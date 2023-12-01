@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+import pl.edu.agh.server.common.requests.InformationRequest;
 import pl.edu.agh.server.model.Information;
 import pl.edu.agh.server.repostiory.InformationRepository;
 
@@ -15,27 +16,40 @@ public class InformationService {
     private static final String NOT_FOUND_MESSAGE = "Information not found with id: ";
     private final InformationRepository informationRepository;
 
-    public List<Information> getInformationList() {
-        return informationRepository.findAll();
+    public List<Information> getInformationList(String language) {
+        List<Information> information = informationRepository.findAll();
+
+        information.forEach(event -> {
+            event.setContent(language);
+            event.setTitle(language);
+        });
+
+        return information;
     }
 
-    public Information getInformation(long id) {
-        return informationRepository.findById(id).orElseThrow(
+    public Information getInformation(long id, String language) {
+        Information information = informationRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );
+        information.setContent(language);
+        information.setTitle(language);
+
+        return information;
     }
 
-    public Information createInformation(Information information) {
+    public Information createInformation(InformationRequest informationRequest) {
+        Information information = new Information();
+        information.updateFromRequest(informationRequest);
+
         return informationRepository.saveAndFlush(information);
     }
 
-    public Information updateInformation(long id, Information informationDetails) {
+    public Information updateInformation(long id, InformationRequest informationRequest) {
         Information information = informationRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );
 
-        information.setTitle(informationDetails.getTitle());
-        information.setContent(informationDetails.getContent());
+        information.updateFromRequest(informationRequest);
 
         return informationRepository.saveAndFlush(information);
     }

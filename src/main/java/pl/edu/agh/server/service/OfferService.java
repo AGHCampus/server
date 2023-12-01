@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+import pl.edu.agh.server.common.requests.OfferRequest;
 import pl.edu.agh.server.model.Offer;
 import pl.edu.agh.server.repostiory.OfferRepository;
 
@@ -16,24 +17,37 @@ public class OfferService {
     private static final String NOT_FOUND_MESSAGE = "Offer not found with id: ";
     private final OfferRepository offerRepository;
 
-    public List<Offer> getOffersList(Optional<Long> locationId) {
+    public List<Offer> getOffersList(Optional<Long> locationId, String language) {
+        List<Offer> offers;
         if (locationId.isPresent()) {
-            return offerRepository.findByLocationIdOrderByStartDateAsc(locationId.get());
+            offers = offerRepository.findByLocationIdOrderByStartDateAsc(locationId.get());
+        } else {
+            offers = offerRepository.findAllByOrderByStartDateAsc();
         }
-        return offerRepository.findAllByOrderByStartDateAsc();
+
+        offers.forEach(offer -> offer.setDescription(language));
+
+        return offers;
     }
 
-    public Offer getOffer(long id) {
-        return offerRepository.findById(id).orElseThrow(
+    public Offer getOffer(long id, String language) {
+        Offer offer = offerRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );
+
+        offer.setDescription(language);
+
+        return offer;
     }
 
-    public Offer createOffer(Offer offer) {
+    public Offer createOffer(OfferRequest offerRequest) {
+        Offer offer = new Offer();
+        offer.updateFromRequest(offerRequest);
+
         return offerRepository.saveAndFlush(offer);
     }
 
-    public Offer updateOffer(long id, Offer offerDetails) {
+    public Offer updateOffer(long id, OfferRequest offerDetails) {
         Offer offer = offerRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );

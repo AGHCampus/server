@@ -10,7 +10,13 @@ import pl.edu.agh.server.repostiory.LocationDetailsRepository;
 public class LocationDetailsService {
     private final LocationDetailsRepository locationDetailsRepository;
 
-    public LocationDetails getLocationDetails(long id) {
-        return locationDetailsRepository.findById(id).orElse(null);
+    public LocationDetails getLocationDetails(long id, String language) {
+        LocationDetails locationDetails = locationDetailsRepository.findById(id).orElse(null);
+
+        if (locationDetails != null) {
+            locationDetails.setDescription(language);
+        }
+
+        return locationDetails;
     }
 }

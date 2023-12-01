@@ -3,13 +3,17 @@ package pl.edu.agh.server.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.extern.log4j.Log4j2;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.LastModifiedDate;
-import pl.edu.agh.server.common.LocationRequest;
+import pl.edu.agh.server.common.requests.LocationRequest;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+@Log4j2
 @Entity
 @Data
 @Table(name = "locationsDetails")
@@ -25,6 +29,13 @@ public class LocationDetails {
 
     private String phoneNumber;
     private String websiteUrl;
+
+    @ElementCollection
+    @JsonIgnore
+    @Column(length = 2048)
+    private Map<String, String> descriptionTranslations = new HashMap<>();
+
+    @Transient
     private String description;
     private String openingHours;
 
@@ -41,10 +52,20 @@ public class LocationDetails {
 
     public void updateFromRequest(Location location, LocationRequest locationRequest) {
         this.location = location;
-        this.description = locationRequest.getDescription();
+        this.descriptionTranslations.putAll(locationRequest.getDescriptionTranslations());
         this.openingHours = locationRequest.getOpeningHours();
         this.phoneNumber = locationRequest.getPhoneNumber();
         this.websiteUrl = locationRequest.getWebsiteUrl();
         this.photos = locationRequest.getPhotos();
+    }
+
+    public void setDescription(String language) {
+        String description = descriptionTranslations.get(language);
+
+        if (description == null) {
+            log.error("Language {} not found for description with locationDetails id {}.", language.toUpperCase(), id);
+        }
+
+        this.description = description;
     }
 }
