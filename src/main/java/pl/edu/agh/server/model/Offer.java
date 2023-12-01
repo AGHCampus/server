@@ -2,6 +2,7 @@ package pl.edu.agh.server.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
@@ -43,11 +44,12 @@ public class Offer {
 
     private Long locationId;
 
-    @ElementCollection
-    @JsonIgnore
+    @ElementCollection(fetch = FetchType.EAGER)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Map<String, String> descriptionTranslations = new HashMap<>();
 
     @Transient
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String description;
 
     private String imageUrl;
@@ -63,12 +65,12 @@ public class Offer {
     }
 
     public void setDescription(String language) {
-        String description = descriptionTranslations.get(language);
+        String localizedDescription = descriptionTranslations.get(language.toLowerCase());
 
-        if (description == null) {
+        if (localizedDescription == null) {
             log.error("Language {} not found for description with offer id {}.", language.toUpperCase(), id);
         }
 
-        this.description = description;
+        this.description = localizedDescription;
     }
 }

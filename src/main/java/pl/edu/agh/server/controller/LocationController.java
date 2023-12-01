@@ -9,6 +9,7 @@ import pl.edu.agh.server.service.LocationDetailsService;
 import pl.edu.agh.server.service.LocationService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("locations")
@@ -18,18 +19,27 @@ public class LocationController {
     private final LocationDetailsService locationDetailsService;
 
     @GetMapping(value = "", produces = "application/json")
-    public List<Location> getLocationList(@RequestParam String lang) {
-        return locationService.getLocationList(lang);
+    public List<Location> getLocationList(@RequestParam Optional<String> lang) {
+        if (lang.isPresent()) {
+            return locationService.getLocalizedLocationList(lang.get());
+        }
+        return locationService.getLocationList();
     }
 
     @GetMapping(value = "/{id}", produces = "application/json")
-    public Location getLocation(@PathVariable long id, @RequestParam String lang) {
-        return locationService.getLocation(id, lang);
+    public Location getLocation(@PathVariable long id, @RequestParam Optional<String> lang) {
+        if (lang.isPresent()) {
+            return locationService.getLocalizedLocation(id, lang.get());
+        }
+        return locationService.getLocation(id);
     }
 
     @GetMapping(value = "/{id}/details", produces = "application/json")
-    public LocationDetails getLocationDetails(@PathVariable long id, @RequestParam String lang) {
-        return locationDetailsService.getLocationDetails(id, lang);
+    public LocationDetails getLocationDetails(@PathVariable long id, @RequestParam Optional<String> lang) {
+        if (lang.isPresent()) {
+            return locationDetailsService.getLocalizedLocationDetails(id, lang.get());
+        }
+        return locationDetailsService.getLocationDetails(id);
     }
 
     @PostMapping(value = "", produces = "application/json")

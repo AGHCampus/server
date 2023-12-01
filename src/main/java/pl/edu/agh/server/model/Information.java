@@ -1,6 +1,6 @@
 package pl.edu.agh.server.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
@@ -23,20 +23,22 @@ public class Information {
     @CreationTimestamp
     private Date timestamp;
 
-    @ElementCollection
-    @JsonIgnore
+    @ElementCollection(fetch = FetchType.EAGER)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(length = 2048)
     private Map<String, String> contentTranslations = new HashMap<>();
 
-    @ElementCollection
-    @JsonIgnore
+    @ElementCollection(fetch = FetchType.EAGER)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Map<String, String> titleTranslations = new HashMap<>();
 
     @Column(length = 2048)
     @Transient
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String content;
 
     @Transient
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String title;
 
     public void updateFromRequest(InformationRequest informationRequest) {
@@ -45,22 +47,22 @@ public class Information {
     }
 
     public void setContent(String language) {
-        String content = contentTranslations.get(language);
+        String localizedContent = contentTranslations.get(language.toLowerCase());
 
-        if (content == null) {
+        if (localizedContent == null) {
             log.error("Language {} not found for content with information id {}.", language.toUpperCase(), id);
         }
 
-        this.content = content;
+        this.content = localizedContent;
     }
 
     public void setTitle(String language) {
-        String title = titleTranslations.get(language);
+        String localizedTitle = titleTranslations.get(language.toLowerCase());
 
-        if (title == null) {
+        if (localizedTitle == null) {
             log.error("Language {} not found for title with information id {}.", language.toUpperCase(), id);
         }
 
-        this.title = title;
+        this.title = localizedTitle;
     }
 }

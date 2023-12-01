@@ -7,6 +7,7 @@ import pl.edu.agh.server.model.Information;
 import pl.edu.agh.server.service.InformationService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("information")
@@ -15,13 +16,19 @@ public class InformationController {
     private final InformationService informationService;
 
     @GetMapping(value = "", produces = "application/json")
-    public List<Information> getInformationList(@RequestParam String lang) {
-        return informationService.getInformationList(lang);
+    public List<Information> getInformationList(@RequestParam Optional<String> lang) {
+        if (lang.isPresent()) {
+            return informationService.getLocalizedInformationList(lang.get());
+        }
+        return informationService.getInformationList();
     }
 
     @GetMapping(value = "/{id}", produces = "application/json")
-    public Information getInformation(@PathVariable long id, @RequestParam String lang) {
-        return informationService.getInformation(id, lang);
+    public Information getInformation(@PathVariable long id, @RequestParam Optional<String> lang) {
+        if (lang.isPresent()) {
+            return informationService.getLocalizedInformation(id, lang.get());
+        }
+        return informationService.getInformation(id);
     }
 
     @PostMapping(value = "", produces = "application/json")
