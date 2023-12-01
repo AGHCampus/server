@@ -26,7 +26,12 @@ import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import pl.edu.agh.server.common.RSAKeyProperties;
+
+import java.util.List;
 
 @Configuration
 @RequiredArgsConstructor
@@ -48,20 +53,16 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(AbstractHttpConfigurer::disable)
-            .authorizeHttpRequests(auth -> {
-                auth.requestMatchers("/actuator/**").permitAll();
-                auth.requestMatchers("/auth/**").permitAll();
-                auth.requestMatchers(HttpMethod.GET, "/information**/**").permitAll();
-                auth.requestMatchers(HttpMethod.GET, "/offer**/**").permitAll();
-                auth.requestMatchers(HttpMethod.GET, "/event**/**").permitAll();
-                auth.requestMatchers(HttpMethod.GET, "/location**/**").permitAll();
-                auth.anyRequest().hasRole("ADMIN");
-            });
+        http.cors().and().csrf(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/**").permitAll()
+                        .anyRequest().hasRole("ADMIN")
+                );
 
         http.oauth2ResourceServer()
-            .jwt()
-            .jwtAuthenticationConverter(jwtAuthenticationConverter());
+                .jwt()
+                .jwtAuthenticationConverter(jwtAuthenticationConverter());
 
         http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
@@ -89,4 +90,16 @@ public class SecurityConfiguration {
         jwtConverter.setJwtGrantedAuthoritiesConverter(jwtGrantedAuthoritiesConverter);
         return jwtConverter;
     }
+
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(List.of("*"));
+        configuration.setAllowedMethods(List.of("*"));
+        configuration.setAllowedHeaders(List.of("*"));
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
+
 }

@@ -17,7 +17,6 @@ import static java.lang.String.format;
 @RestController
 @RequestMapping("auth")
 @RequiredArgsConstructor
-@CrossOrigin
 public class AuthenticationController {
     private final AuthenticationService authenticationService;
 

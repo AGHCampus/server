@@ -10,7 +10,6 @@ import java.util.List;
 @RestController
 @RequestMapping("information")
 @RequiredArgsConstructor
-@CrossOrigin
 public class InformationController {
     private final InformationService informationService;
 
