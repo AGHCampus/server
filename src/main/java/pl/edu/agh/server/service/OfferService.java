@@ -36,7 +36,7 @@ public class OfferService {
     }
 
     public List<Offer> getOffersList() {
-        return offerRepository.findAllByOrderByStartDateAsc();
+        return offerRepository.findAllByOrderByStartDateDesc();
     }
 
     public Offer getTranslatedOffer(long id, String language) {

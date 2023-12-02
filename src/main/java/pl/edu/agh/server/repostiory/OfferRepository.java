@@ -16,6 +16,8 @@ public interface OfferRepository extends JpaRepository<Offer, Long> {
     @Query("SELECT o FROM Offer o WHERE o.locationId = :locationId AND o.startDate >= :date ORDER BY o.startDate ASC")
     List<Offer> findByLocationIdOrderByStartDateAsc(@Param("locationId") Long locationId, @Param("date") Date date);
 
+    List<Offer> findAllByOrderByStartDateDesc();
+
     @Transactional
     void deleteAllByLocationId(Long id);
 }

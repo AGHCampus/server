@@ -16,6 +16,8 @@ public interface EventRepository extends JpaRepository<Event, Long> {
     @Query("SELECT e FROM Event e WHERE e.locationId = :locationId AND e.startDate >= :date ORDER BY e.startDate ASC")
     List<Event> findByLocationIdOrderByStartDateAsc(@Param("locationId") Long locationId, @Param("date") Date date);
 
+    List<Event> findAllByOrderByStartDateDesc();
+
     @Transactional
     void deleteAllByLocationId(Long id);
 }

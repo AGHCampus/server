@@ -37,7 +37,7 @@ public class EventService {
     }
 
     public List<Event> getEventsList() {
-        return eventRepository.findAllByOrderByStartDateAsc();
+        return eventRepository.findAllByOrderByStartDateDesc() ;
     }
 
     public Event getTanslatedEvent(long id, String language) {
