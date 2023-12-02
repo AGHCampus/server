@@ -372,27 +372,27 @@ VALUES (22, 'Ali Baba King of Kebab', 'en');
 INSERT INTO public.offers (id, end_date, image_url, last_modified_date, location_id, start_date, timestamp, website_url)
 VALUES (3, '2026-12-24 00:00:00.000000',
         'https://s3.eu-central-1.amazonaws.com/restaumatic-production-pl/uploads/accounts/29971/media_library/0a74eb41-771b-4682-a95c-3b8cd1eefab5.jpg',
-        null, 14, '2022-06-23 00:00:00.000000', '2023-06-26 03:04:27.000000', null);
+        null, 14, '2024-06-23 00:00:00.000000', '2023-06-26 03:04:27.000000', null);
 INSERT INTO public.offers (id, end_date, image_url, last_modified_date, location_id, start_date, timestamp, website_url)
 VALUES (1, '2023-10-29 12:00:00.000000',
         'https://s3.eu-central-1.amazonaws.com/restaumatic-production-pl/uploads/accounts/29971/media_library/0a74eb41-771b-4682-a95c-3b8cd1eefab5.jpg',
-        null, 14, '2023-08-28 00:00:00.000000', '2023-06-26 03:04:26.000000', null);
+        null, 14, '2023-12-28 00:00:00.000000', '2023-06-26 03:04:26.000000', null);
 INSERT INTO public.offers (id, end_date, image_url, last_modified_date, location_id, start_date, timestamp, website_url)
 VALUES (2, '2023-07-26 03:04:34.000000',
         'https://restaumatic-production.imgix.net/uploads/accounts/34896/media_library/58026fe4-3591-4d08-9788-e3bc8bae94d2.jpg',
-        null, 22, '2023-06-26 03:04:31.000000', '2023-06-26 03:04:24.000000',
+        null, 22, '2024-06-26 03:04:31.000000', '2023-06-26 03:04:24.000000',
         'https://www.facebook.com/p/Ali-Baba-Kebab-Krakow-100075863066447/');
 INSERT INTO public.offers (id, end_date, image_url, last_modified_date, location_id, start_date, timestamp, website_url)
 VALUES (4, '2024-11-25 21:44:01.000000',
         'https://lh5.googleusercontent.com/p/AF1QipNXKGFx1ZOUKuU4wzW5oH-A569V6bSydtzoNOme=w408-h544-k-no', null, 22,
-        '2023-11-25 21:43:54.000000', '2023-11-25 21:44:20.000000',
+        '2023-12-25 21:43:54.000000', '2023-11-25 21:44:20.000000',
         'https://www.facebook.com/p/Ali-Baba-Kebab-Krakow-100075863066447/');
 INSERT INTO public.offers (id, end_date, image_url, last_modified_date, location_id, start_date, timestamp, website_url)
 VALUES (5, '2024-09-25 21:44:03.000000', 'https://restauracjakavior.pl/images/design/home-main-article-f.webp', null,
-        16, '2023-11-25 21:43:57.000000', '2023-11-25 21:44:21.000000', 'https://restauracjakavior.pl/');
+        16, '2024-11-25 21:43:57.000000', '2023-11-25 21:44:21.000000', 'https://restauracjakavior.pl/');
 INSERT INTO public.offers (id, end_date, image_url, last_modified_date, location_id, start_date, timestamp, website_url)
 VALUES (6, '2027-06-25 21:44:05.000000', 'https://restauracjakavior.pl/images/design/box-offer-a.webp', null, 16,
-        '2023-11-25 21:43:58.000000', '2023-11-25 21:44:22.000000', 'https://restauracjakavior.pl/');
+        '2024-11-25 21:43:58.000000', '2023-11-25 21:44:22.000000', 'https://restauracjakavior.pl/');
 
 --offer_description_translations
 INSERT INTO public.offer_description_translations (offer_id, description_translations, description_translations_key)
@@ -447,7 +447,7 @@ VALUES (6, '2024-05-18 05:00:00.000000',
 INSERT INTO public.events (id, end_date, image_url, last_modified_date, location_id, start_date, timestamp, website_url)
 VALUES (7, '2023-07-28 04:00:00.000000',
         'https://www.miasteczko.agh.edu.pl/uploads/images/Gallery/zycie/wiecz%C3%B3r%20podczas%20projektu%20PIWO.jpg',
-        null, 1, '2023-07-27 12:00:00.000000', '2023-11-25 22:41:17.000000',
+        null, 1, '2024-07-27 12:00:00.000000', '2023-11-25 22:41:17.000000',
         'https://www.miasteczko.agh.edu.pl/o-nas.html');
 
 --event_title_translations

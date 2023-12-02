@@ -8,6 +8,7 @@ import pl.edu.agh.server.common.requests.OfferRequest;
 import pl.edu.agh.server.model.Offer;
 import pl.edu.agh.server.repostiory.OfferRepository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,10 +20,11 @@ public class OfferService {
 
     public List<Offer> getTranslatedOffersList(Optional<Long> locationId, String language) {
         List<Offer> offers;
+        Date date = new Date();
         if (locationId.isPresent()) {
-            offers = offerRepository.findByLocationIdOrderByStartDateAsc(locationId.get());
+            offers = offerRepository.findByLocationIdOrderByStartDateAsc(locationId.get(), date);
         } else {
-            offers = offerRepository.findAllByOrderByStartDateAsc();
+            offers = offerRepository.findAllByOrderByStartDateAsc(date);
         }
 
         offers.forEach(offer -> {
@@ -34,7 +36,7 @@ public class OfferService {
     }
 
     public List<Offer> getOffersList() {
-        return offerRepository.findAllByOrderByStartDateAsc();
+        return offerRepository.findAllByOrderByStartDateDesc();
     }
 
     public Offer getTranslatedOffer(long id, String language) {

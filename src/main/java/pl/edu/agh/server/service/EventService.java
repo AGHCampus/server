@@ -8,6 +8,7 @@ import pl.edu.agh.server.common.requests.EventRequest;
 import pl.edu.agh.server.model.Event;
 import pl.edu.agh.server.repostiory.EventRepository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,10 +20,11 @@ public class EventService {
 
     public List<Event> getTranslatedEventsList(Optional<Long> locationId, String language) {
         List<Event> events;
+        Date date = new Date();
         if (locationId.isPresent()) {
-            events = eventRepository.findByLocationIdOrderByStartDateAsc(locationId.get());
+            events = eventRepository.findByLocationIdOrderByStartDateAsc(locationId.get(), date);
         } else {
-            events = eventRepository.findAllByOrderByStartDateAsc();
+            events = eventRepository.findAllByOrderByStartDateAsc(date);
         }
         events.forEach(event -> {
             event.setDescription(language);
@@ -35,7 +37,7 @@ public class EventService {
     }
 
     public List<Event> getEventsList() {
-        return eventRepository.findAllByOrderByStartDateAsc();
+        return eventRepository.findAllByOrderByStartDateDesc() ;
     }
 
     public Event getTanslatedEvent(long id, String language) {
