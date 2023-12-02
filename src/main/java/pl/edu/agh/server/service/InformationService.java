@@ -17,7 +17,7 @@ public class InformationService {
     private final InformationRepository informationRepository;
 
     public List<Information> getTranslatedInformationList(String language) {
-        List<Information> information = informationRepository.findAll();
+        List<Information> information = informationRepository.findAllByOrderByTimestampAsc();
 
         information.forEach(event -> {
             event.setContent(language);
