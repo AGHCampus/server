@@ -24,7 +24,7 @@ public class LocationService {
     private final EventRepository eventRepository;
     private final OfferRepository offerRepository;
 
-    public List<Location> getLocalizedLocationList(String language) {
+    public List<Location> getTranslatedLocationList(String language) {
         List<Location> locations = locationRepository.findAll();
 
         locations.forEach(location -> {
@@ -44,7 +44,7 @@ public class LocationService {
         return locations;
     }
 
-    public Location getLocalizedLocation(long id, String language) {
+    public Location getTranslatedLocation(long id, String language) {
         Location location = locationRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );

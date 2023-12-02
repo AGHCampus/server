@@ -82,12 +82,12 @@ public class Location {
     }
 
     public void setName(String language) {
-        String localizedName = nameTranslations.get(language.toLowerCase());
+        String translatedName = nameTranslations.get(language.toLowerCase());
 
-        if (localizedName == null) {
+        if (translatedName == null) {
             log.error("Language {} not found for location name with location id {}.", language.toUpperCase(), id);
         }
 
-        this.name = localizedName;
+        this.name = translatedName;
     }
 }

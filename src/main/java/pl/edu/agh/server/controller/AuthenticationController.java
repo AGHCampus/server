@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.edu.agh.server.common.LocalizedMessages;
+import pl.edu.agh.server.common.TranslatedEmailMessages;
 import pl.edu.agh.server.common.LoginResponse;
 import pl.edu.agh.server.common.requests.ChangePasswordRequest;
 import pl.edu.agh.server.model.User;
@@ -28,7 +28,7 @@ public class AuthenticationController {
     @GetMapping("/verify")
     public ResponseEntity<String> verifyUser(@RequestParam String token, @RequestParam String lang) {
         authenticationService.verifyUser(token);
-        return new ResponseEntity<>(LocalizedMessages.verified(lang), HttpStatus.OK);
+        return new ResponseEntity<>(TranslatedEmailMessages.verified(lang), HttpStatus.OK);
     }
 
     @PostMapping("/login")
@@ -51,6 +51,6 @@ public class AuthenticationController {
     @GetMapping("/reset")
     public ResponseEntity<String> validatePasswordReset(@RequestParam String token, @RequestParam String lang) {
         String temporaryPassword = authenticationService.validatePasswordReset(token);
-        return new ResponseEntity<>(format(LocalizedMessages.reset(lang), temporaryPassword), HttpStatus.OK);
+        return new ResponseEntity<>(format(TranslatedEmailMessages.reset(lang), temporaryPassword), HttpStatus.OK);
     }
 }

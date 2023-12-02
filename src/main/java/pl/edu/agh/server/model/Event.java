@@ -75,22 +75,22 @@ public class Event {
     }
 
     public void setDescription(String language) {
-        String localizedDescription = descriptionTranslations.get(language.toLowerCase());
+        String translatedDescription = descriptionTranslations.get(language.toLowerCase());
 
-        if (localizedDescription == null) {
+        if (translatedDescription == null) {
             log.error("Language {} not found for description with event id {}.", language.toUpperCase(), id);
         }
 
-        this.description = localizedDescription;
+        this.description = translatedDescription;
     }
 
     public void setTitle(String language) {
-        String localizedTitle = titleTranslations.get(language.toLowerCase());
+        String translatedTitle = titleTranslations.get(language.toLowerCase());
 
-        if (localizedTitle == null) {
+        if (translatedTitle == null) {
             log.error("Language {} not found for title with event id {}.", language.toUpperCase(), id);
         }
 
-        this.title = localizedTitle;
+        this.title = translatedTitle;
     }
 }

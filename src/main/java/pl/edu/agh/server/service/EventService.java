@@ -17,7 +17,7 @@ public class EventService {
     private static final String NOT_FOUND_MESSAGE = "Event not found with id: ";
     private final EventRepository eventRepository;
 
-    public List<Event> getLocalizedEventsList(Optional<Long> locationId, String language) {
+    public List<Event> getTranslatedEventsList(Optional<Long> locationId, String language) {
         List<Event> events;
         if (locationId.isPresent()) {
             events = eventRepository.findByLocationIdOrderByStartDateAsc(locationId.get());
@@ -38,7 +38,7 @@ public class EventService {
         return eventRepository.findAllByOrderByStartDateAsc();
     }
 
-    public Event getLocalizedEvent(long id, String language) {
+    public Event getTanslatedEvent(long id, String language) {
         Event event = eventRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );

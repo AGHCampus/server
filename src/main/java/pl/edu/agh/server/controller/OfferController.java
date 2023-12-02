@@ -18,7 +18,7 @@ public class OfferController {
     @GetMapping(value = "", produces = "application/json")
     public List<Offer> getOffersList(@RequestParam Optional<Long> locationId, @RequestParam Optional<String> lang) {
         if (lang.isPresent()) {
-            return offerService.getLocalizedOffersList(locationId, lang.get());
+            return offerService.getTranslatedOffersList(locationId, lang.get());
         }
         return offerService.getOffersList();
     }
@@ -26,7 +26,7 @@ public class OfferController {
     @GetMapping(value = "/{id}", produces = "application/json")
     public Offer getOffer(@PathVariable long id, @RequestParam Optional<String> lang) {
         if (lang.isPresent()) {
-            return offerService.getLocalizedOffer(id, lang.get());
+            return offerService.getTranslatedOffer(id, lang.get());
         }
         return offerService.getOffer(id);
     }

@@ -65,12 +65,12 @@ public class Offer {
     }
 
     public void setDescription(String language) {
-        String localizedDescription = descriptionTranslations.get(language.toLowerCase());
+        String translatedDescription = descriptionTranslations.get(language.toLowerCase());
 
-        if (localizedDescription == null) {
+        if (translatedDescription == null) {
             log.error("Language {} not found for description with offer id {}.", language.toUpperCase(), id);
         }
 
-        this.description = localizedDescription;
+        this.description = translatedDescription;
     }
 }

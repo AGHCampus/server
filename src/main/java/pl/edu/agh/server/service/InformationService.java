@@ -16,7 +16,7 @@ public class InformationService {
     private static final String NOT_FOUND_MESSAGE = "Information not found with id: ";
     private final InformationRepository informationRepository;
 
-    public List<Information> getLocalizedInformationList(String language) {
+    public List<Information> getTranslatedInformationList(String language) {
         List<Information> information = informationRepository.findAll();
 
         information.forEach(event -> {
@@ -33,7 +33,7 @@ public class InformationService {
         return informationRepository.findAll();
     }
 
-    public Information getLocalizedInformation(long id, String language) {
+    public Information getTranslatedInformation(long id, String language) {
         Information information = informationRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );

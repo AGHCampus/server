@@ -21,7 +21,7 @@ public class LocationController {
     @GetMapping(value = "", produces = "application/json")
     public List<Location> getLocationList(@RequestParam Optional<String> lang) {
         if (lang.isPresent()) {
-            return locationService.getLocalizedLocationList(lang.get());
+            return locationService.getTranslatedLocationList(lang.get());
         }
         return locationService.getLocationList();
     }
@@ -29,7 +29,7 @@ public class LocationController {
     @GetMapping(value = "/{id}", produces = "application/json")
     public Location getLocation(@PathVariable long id, @RequestParam Optional<String> lang) {
         if (lang.isPresent()) {
-            return locationService.getLocalizedLocation(id, lang.get());
+            return locationService.getTranslatedLocation(id, lang.get());
         }
         return locationService.getLocation(id);
     }
@@ -37,7 +37,7 @@ public class LocationController {
     @GetMapping(value = "/{id}/details", produces = "application/json")
     public LocationDetails getLocationDetails(@PathVariable long id, @RequestParam Optional<String> lang) {
         if (lang.isPresent()) {
-            return locationDetailsService.getLocalizedLocationDetails(id, lang.get());
+            return locationDetailsService.getTranslatedLocationDetails(id, lang.get());
         }
         return locationDetailsService.getLocationDetails(id);
     }

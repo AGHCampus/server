@@ -47,22 +47,22 @@ public class Information {
     }
 
     public void setContent(String language) {
-        String localizedContent = contentTranslations.get(language.toLowerCase());
+        String translatedContent = contentTranslations.get(language.toLowerCase());
 
-        if (localizedContent == null) {
+        if (translatedContent == null) {
             log.error("Language {} not found for content with information id {}.", language.toUpperCase(), id);
         }
 
-        this.content = localizedContent;
+        this.content = translatedContent;
     }
 
     public void setTitle(String language) {
-        String localizedTitle = titleTranslations.get(language.toLowerCase());
+        String translatedTitle = titleTranslations.get(language.toLowerCase());
 
-        if (localizedTitle == null) {
+        if (translatedTitle == null) {
             log.error("Language {} not found for title with information id {}.", language.toUpperCase(), id);
         }
 
-        this.title = localizedTitle;
+        this.title = translatedTitle;
     }
 }

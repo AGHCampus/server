@@ -13,7 +13,7 @@ public class LocationDetailsService {
     private static final String NOT_FOUND_MESSAGE = "Location details not found with id: ";
     private final LocationDetailsRepository locationDetailsRepository;
 
-    public LocationDetails getLocalizedLocationDetails(long id, String language) {
+    public LocationDetails getTranslatedLocationDetails(long id, String language) {
         LocationDetails locationDetails = locationDetailsRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );

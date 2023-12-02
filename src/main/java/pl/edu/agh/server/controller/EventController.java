@@ -18,7 +18,7 @@ public class EventController {
     @GetMapping(value = "", produces = "application/json")
     public List<Event> getEventsList(@RequestParam Optional<Long> locationId, @RequestParam Optional<String> lang) {
         if (lang.isPresent()) {
-            return eventService.getLocalizedEventsList(locationId, lang.get());
+            return eventService.getTranslatedEventsList(locationId, lang.get());
         }
         return eventService.getEventsList();
     }
@@ -26,7 +26,7 @@ public class EventController {
     @GetMapping(value = "/{id}", produces = "application/json")
     public Event getEvent(@PathVariable long id, @RequestParam Optional<String> lang) {
         if (lang.isPresent()) {
-            return eventService.getLocalizedEvent(id, lang.get());
+            return eventService.getTanslatedEvent(id, lang.get());
         }
         return eventService.getEvent(id);
     }

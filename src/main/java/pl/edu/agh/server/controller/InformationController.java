@@ -18,7 +18,7 @@ public class InformationController {
     @GetMapping(value = "", produces = "application/json")
     public List<Information> getInformationList(@RequestParam Optional<String> lang) {
         if (lang.isPresent()) {
-            return informationService.getLocalizedInformationList(lang.get());
+            return informationService.getTranslatedInformationList(lang.get());
         }
         return informationService.getInformationList();
     }
@@ -26,7 +26,7 @@ public class InformationController {
     @GetMapping(value = "/{id}", produces = "application/json")
     public Information getInformation(@PathVariable long id, @RequestParam Optional<String> lang) {
         if (lang.isPresent()) {
-            return informationService.getLocalizedInformation(id, lang.get());
+            return informationService.getTranslatedInformation(id, lang.get());
         }
         return informationService.getInformation(id);
     }
