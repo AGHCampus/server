@@ -16,13 +16,19 @@ public class EventController {
     private final EventService eventService;
 
     @GetMapping(value = "", produces = "application/json")
-    public List<Event> getEventsList(@RequestParam Optional<Long> locationId, @RequestParam String lang) {
-        return eventService.getEventsList(locationId, lang);
+    public List<Event> getEventsList(@RequestParam Optional<Long> locationId, @RequestParam Optional<String> lang) {
+        if (lang.isPresent()) {
+            return eventService.getTranslatedEventsList(locationId, lang.get());
+        }
+        return eventService.getEventsList();
     }
 
     @GetMapping(value = "/{id}", produces = "application/json")
-    public Event getEvent(@PathVariable long id, @RequestParam String lang) {
-        return eventService.getEvent(id, lang);
+    public Event getEvent(@PathVariable long id, @RequestParam Optional<String> lang) {
+        if (lang.isPresent()) {
+            return eventService.getTanslatedEvent(id, lang.get());
+        }
+        return eventService.getEvent(id);
     }
 
     @PostMapping(value = "", produces = "application/json")

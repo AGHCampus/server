@@ -2,6 +2,7 @@ package pl.edu.agh.server.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
@@ -42,20 +43,22 @@ public class Event {
     private Date endDate;
     private Long locationId;
 
-    @ElementCollection
-    @JsonIgnore
+    @ElementCollection(fetch = FetchType.EAGER)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(length = 2048)
     private Map<String, String> descriptionTranslations = new HashMap<>();
 
     @Column(length = 2048)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @Transient
     private String description;
 
-    @ElementCollection
-    @JsonIgnore
+    @ElementCollection(fetch = FetchType.EAGER)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Map<String, String> titleTranslations = new HashMap<>();
 
     @Transient
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String title;
 
     private String imageUrl;
@@ -72,22 +75,22 @@ public class Event {
     }
 
     public void setDescription(String language) {
-        String description = descriptionTranslations.get(language);
+        String translatedDescription = descriptionTranslations.get(language.toLowerCase());
 
-        if (description == null) {
+        if (translatedDescription == null) {
             log.error("Language {} not found for description with event id {}.", language.toUpperCase(), id);
         }
 
-        this.description = description;
+        this.description = translatedDescription;
     }
 
     public void setTitle(String language) {
-        String title = titleTranslations.get(language);
+        String translatedTitle = titleTranslations.get(language.toLowerCase());
 
-        if (title == null) {
+        if (translatedTitle == null) {
             log.error("Language {} not found for title with event id {}.", language.toUpperCase(), id);
         }
 
-        this.title = title;
+        this.title = translatedTitle;
     }
 }

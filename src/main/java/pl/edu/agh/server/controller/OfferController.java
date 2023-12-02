@@ -16,13 +16,19 @@ public class OfferController {
     private final OfferService offerService;
 
     @GetMapping(value = "", produces = "application/json")
-    public List<Offer> getOffersList(@RequestParam Optional<Long> locationId, @RequestParam String lang) {
-        return offerService.getOffersList(locationId, lang);
+    public List<Offer> getOffersList(@RequestParam Optional<Long> locationId, @RequestParam Optional<String> lang) {
+        if (lang.isPresent()) {
+            return offerService.getTranslatedOffersList(locationId, lang.get());
+        }
+        return offerService.getOffersList();
     }
 
     @GetMapping(value = "/{id}", produces = "application/json")
-    public Offer getOffer(@PathVariable long id, @RequestParam String lang) {
-        return offerService.getOffer(id, lang);
+    public Offer getOffer(@PathVariable long id, @RequestParam Optional<String> lang) {
+        if (lang.isPresent()) {
+            return offerService.getTranslatedOffer(id, lang.get());
+        }
+        return offerService.getOffer(id);
     }
 
     @PostMapping(value = "", produces = "application/json")

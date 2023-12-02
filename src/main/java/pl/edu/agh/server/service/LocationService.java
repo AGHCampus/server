@@ -24,18 +24,27 @@ public class LocationService {
     private final EventRepository eventRepository;
     private final OfferRepository offerRepository;
 
-    public List<Location> getLocationList(String language) {
+    public List<Location> getTranslatedLocationList(String language) {
         List<Location> locations = locationRepository.findAll();
 
         locations.forEach(location -> {
             location.setCoordinate(new Coordinate(location.getLongitude(), location.getLatitude()));
             location.setName(language);
+            location.setNameTranslations(null);
         });
 
         return locations;
     }
 
-    public Location getLocation(long id, String language) {
+    public List<Location> getLocationList() {
+        List<Location> locations = locationRepository.findAll();
+
+        locations.forEach(location -> location.setCoordinate(new Coordinate(location.getLongitude(), location.getLatitude())));
+
+        return locations;
+    }
+
+    public Location getTranslatedLocation(long id, String language) {
         Location location = locationRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );
@@ -43,6 +52,19 @@ public class LocationService {
         if (location != null) {
             location.setCoordinate(new Coordinate(location.getLongitude(), location.getLatitude()));
             location.setName(language);
+            location.setNameTranslations(null);
+        }
+
+        return location;
+    }
+
+    public Location getLocation(long id) {
+        Location location = locationRepository.findById(id).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
+        );
+
+        if (location != null) {
+            location.setCoordinate(new Coordinate(location.getLongitude(), location.getLatitude()));
         }
 
         return location;

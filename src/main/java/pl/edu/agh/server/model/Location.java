@@ -1,6 +1,7 @@
 package pl.edu.agh.server.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,10 +34,13 @@ public class Location {
 
     @Getter
     @Transient
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String name;
 
-    @ElementCollection
-    @JsonIgnore
+    @ElementCollection(fetch = FetchType.EAGER)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Getter
+    @Setter
     private Map<String, String> nameTranslations = new HashMap<>();
 
     @Getter
@@ -78,12 +82,12 @@ public class Location {
     }
 
     public void setName(String language) {
-        String name = nameTranslations.get(language);
+        String translatedName = nameTranslations.get(language.toLowerCase());
 
-        if (name == null) {
+        if (translatedName == null) {
             log.error("Language {} not found for location name with location id {}.", language.toUpperCase(), id);
         }
 
-        this.name = name;
+        this.name = translatedName;
     }
 }

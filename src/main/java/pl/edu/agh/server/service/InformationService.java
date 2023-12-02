@@ -16,25 +16,39 @@ public class InformationService {
     private static final String NOT_FOUND_MESSAGE = "Information not found with id: ";
     private final InformationRepository informationRepository;
 
-    public List<Information> getInformationList(String language) {
+    public List<Information> getTranslatedInformationList(String language) {
         List<Information> information = informationRepository.findAll();
 
         information.forEach(event -> {
             event.setContent(language);
             event.setTitle(language);
+            event.setContentTranslations(null);
+            event.setTitleTranslations(null);
         });
 
         return information;
     }
 
-    public Information getInformation(long id, String language) {
+    public List<Information> getInformationList() {
+        return informationRepository.findAll();
+    }
+
+    public Information getTranslatedInformation(long id, String language) {
         Information information = informationRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );
         information.setContent(language);
         information.setTitle(language);
+        information.setTitleTranslations(null);
+        information.setContentTranslations(null);
 
         return information;
+    }
+
+    public Information getInformation(long id) {
+        return informationRepository.findById(id).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
+        );
     }
 
     public Information createInformation(InformationRequest informationRequest) {

@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
-import pl.edu.agh.server.common.LocalizedMessages;
+import pl.edu.agh.server.common.TranslatedEmailMessages;
 
 import static java.lang.String.format;
 
@@ -14,11 +14,11 @@ public class MailService {
     private final JavaMailSender mailSender;
 
     public void sendVerificationEmail(String lang, String to, String url) {
-       sendMessage(LocalizedMessages.verificationSubject(lang), format(LocalizedMessages.verificationTemplate(lang), url), to);
+       sendMessage(TranslatedEmailMessages.verificationSubject(lang), format(TranslatedEmailMessages.verificationTemplate(lang), url), to);
     }
 
     public void sendResetPasswordEmail(String lang, String to, String url) {
-        sendMessage(LocalizedMessages.resetSubject(lang), format(LocalizedMessages.resetTemplate(lang), url), to);
+        sendMessage(TranslatedEmailMessages.resetSubject(lang), format(TranslatedEmailMessages.resetTemplate(lang), url), to);
     }
 
     private void sendMessage(String subject, String text, String to) {

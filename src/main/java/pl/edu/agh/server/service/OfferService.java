@@ -17,7 +17,7 @@ public class OfferService {
     private static final String NOT_FOUND_MESSAGE = "Offer not found with id: ";
     private final OfferRepository offerRepository;
 
-    public List<Offer> getOffersList(Optional<Long> locationId, String language) {
+    public List<Offer> getTranslatedOffersList(Optional<Long> locationId, String language) {
         List<Offer> offers;
         if (locationId.isPresent()) {
             offers = offerRepository.findByLocationIdOrderByStartDateAsc(locationId.get());
@@ -25,19 +25,33 @@ public class OfferService {
             offers = offerRepository.findAllByOrderByStartDateAsc();
         }
 
-        offers.forEach(offer -> offer.setDescription(language));
+        offers.forEach(offer -> {
+            offer.setDescription(language);
+            offer.setDescriptionTranslations(null);
+        });
 
         return offers;
     }
 
-    public Offer getOffer(long id, String language) {
+    public List<Offer> getOffersList() {
+        return offerRepository.findAllByOrderByStartDateAsc();
+    }
+
+    public Offer getTranslatedOffer(long id, String language) {
         Offer offer = offerRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );
 
         offer.setDescription(language);
+        offer.setDescriptionTranslations(null);
 
         return offer;
+    }
+
+    public Offer getOffer(long id) {
+        return offerRepository.findById(id).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
+        );
     }
 
     public Offer createOffer(OfferRequest offerRequest) {
