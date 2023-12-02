@@ -4,13 +4,11 @@ import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
 import pl.edu.agh.server.model.Offer;
 
 import java.util.Date;
 import java.util.List;
 
-@Repository
 public interface OfferRepository extends JpaRepository<Offer, Long> {
     @Query("SELECT o FROM Offer o WHERE o.startDate >= :date ORDER BY o.startDate ASC")
     List<Offer> findAllByOrderByStartDateAsc(@Param("date") Date startDate);
