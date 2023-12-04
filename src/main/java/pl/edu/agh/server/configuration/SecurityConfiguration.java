@@ -57,6 +57,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/**").permitAll()
+                        .requestMatchers("/private-events**/**").authenticated()
                         .anyRequest().hasRole("ADMIN")
                 );
 

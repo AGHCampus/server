@@ -40,6 +40,8 @@ public class PrivateEventService {
         PrivateEvent privateEvent = new PrivateEvent();
         privateEvent.updateFromRequest(privateEventRequest);
 
-        return privateEventRepository.saveAndFlush(privateEvent);
+        PrivateEvent createdPrivateEvent = privateEventRepository.saveAndFlush(privateEvent);
+        createdPrivateEvent.setCoordinate(new Coordinate(createdPrivateEvent.getLongitude(), createdPrivateEvent.getLatitude()));
+        return createdPrivateEvent;
     }
 }

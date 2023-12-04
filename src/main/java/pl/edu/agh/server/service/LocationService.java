@@ -77,10 +77,11 @@ public class LocationService {
         location.updateFromRequest(locationRequest);
         locationDetails.updateFromRequest(location, locationRequest);
 
-        locationRepository.saveAndFlush(location);
+        Location createdLocation = locationRepository.saveAndFlush(location);
+        createdLocation.setCoordinate(new Coordinate(createdLocation.getLongitude(), createdLocation.getLatitude()));
         locationDetailsRepository.saveAndFlush(locationDetails);
 
-        return location;
+        return createdLocation;
     }
 
     public Location updateLocation(long id, LocationRequest locationRequest) {
@@ -95,9 +96,10 @@ public class LocationService {
         locationDetails.updateFromRequest(location, locationRequest);
 
         locationDetailsRepository.saveAndFlush(locationDetails);
-        locationRepository.saveAndFlush(location);
+        Location updatedLocation = locationRepository.saveAndFlush(location);
+        updatedLocation.setCoordinate(new Coordinate(updatedLocation.getLongitude(), updatedLocation.getLatitude()));
 
-        return location;
+        return updatedLocation;
     }
 
     public Location deleteLocation(long id) {
