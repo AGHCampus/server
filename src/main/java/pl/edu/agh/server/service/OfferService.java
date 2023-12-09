@@ -11,12 +11,14 @@ import pl.edu.agh.server.repostiory.OfferRepository;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
 public class OfferService {
     private static final String NOT_FOUND_MESSAGE = "Offer not found with id: ";
     private final OfferRepository offerRepository;
+    private final CurrentUserService currentUserService;
 
     public List<Offer> getTranslatedOffersList(Optional<Long> locationId, String language) {
         List<Offer> offers;
@@ -36,7 +38,12 @@ public class OfferService {
     }
 
     public List<Offer> getOffersList() {
-        return offerRepository.findAllByOrderByStartDateDesc();
+        if (currentUserService.hasAdminPermissions()) {
+            return offerRepository.findAllByOrderByStartDateDesc();
+        }
+
+        Set<Long> locationIds = currentUserService.getLocationIds();
+        return offerRepository.findAllByLocationIdInOrderByStartDateDesc(locationIds);
     }
 
     public Offer getTranslatedOffer(long id, String language) {
@@ -51,9 +58,15 @@ public class OfferService {
     }
 
     public Offer getOffer(long id) {
-        return offerRepository.findById(id).orElseThrow(
+        Offer offer = offerRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );
+
+        if (currentUserService.isUnauthorizedForLocation(offer.getLocationId())) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+        }
+
+        return offer;
     }
 
     public Offer createOffer(OfferRequest offerRequest) {
@@ -68,6 +81,10 @@ public class OfferService {
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );
 
+        if (currentUserService.isUnauthorizedForLocation(offer.getLocationId())) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+        }
+
         offer.updateFromRequest(offerDetails);
 
         return offerRepository.saveAndFlush(offer);
@@ -77,6 +94,10 @@ public class OfferService {
         Offer offer = offerRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );
+
+        if (currentUserService.isUnauthorizedForLocation(offer.getLocationId())) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+        }
 
         offerRepository.deleteById(id);
 

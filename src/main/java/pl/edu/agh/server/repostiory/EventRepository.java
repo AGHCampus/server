@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import pl.edu.agh.server.model.Event;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -17,6 +18,8 @@ public interface EventRepository extends JpaRepository<Event, Long> {
     List<Event> findByLocationIdOrderByStartDateAsc(@Param("locationId") Long locationId, @Param("date") Date date);
 
     List<Event> findAllByOrderByStartDateDesc();
+
+    List<Event> findAllByLocationIdInOrderByStartDateDesc(Collection<Long> locationId);
 
     @Transactional
     void deleteAllByLocationId(Long id);

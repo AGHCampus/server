@@ -55,14 +55,7 @@ public class AuthenticationService {
                 .build();
         User createdUser = userRepository.save(newUser);
 
-        Token verificationToken = Token.builder()
-                .value(UUID.randomUUID().toString())
-                .type(VERIFICATION_TYPE)
-                .userId(createdUser.getId())
-                .build();
-        Token createdToken = tokenRepository.save(verificationToken);
-
-        createVerificationEmail(createdToken, createdUser, lang);
+        sendVerificationEmail(createdUser, lang);
 
         return createdUser;
     }
@@ -146,6 +139,17 @@ public class AuthenticationService {
         authorities.add(role.get());
 
         return authorities;
+    }
+
+    public void sendVerificationEmail(User user, Optional<String> lang) {
+        Token verificationToken = Token.builder()
+                .value(UUID.randomUUID().toString())
+                .type(VERIFICATION_TYPE)
+                .userId(user.getId())
+                .build();
+        Token createdToken = tokenRepository.save(verificationToken);
+
+        createVerificationEmail(createdToken, user, lang);
     }
 
     private void createVerificationEmail(Token token, User user, Optional<String> lang) {

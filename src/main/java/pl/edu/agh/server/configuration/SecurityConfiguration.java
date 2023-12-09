@@ -57,8 +57,9 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/**").permitAll()
-                        .requestMatchers("/private-events**/**").authenticated()
-                        .anyRequest().hasRole("ADMIN")
+                        .requestMatchers("/information").hasAnyRole("UNIVERSITY", "ADMIN")
+                        .requestMatchers("/users").hasRole("ADMIN")
+                        .anyRequest().authenticated()
                 );
 
         http.oauth2ResourceServer()

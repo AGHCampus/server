@@ -12,6 +12,7 @@ import pl.edu.agh.server.common.requests.LocationRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Log4j2
 @Entity
@@ -70,6 +71,12 @@ public class Location {
     @Setter
     private Coordinate coordinate;
 
+    @ManyToMany(mappedBy = "locations")
+    @Getter
+    @Setter
+    @JsonIgnore
+    private Set<Role> roles;
+
     public void updateFromRequest(LocationRequest locationRequest) {
         this.nameTranslations.putAll(locationRequest.getNameTranslations());
         this.category = locationRequest.getCategory();
@@ -89,5 +96,10 @@ public class Location {
         }
 
         this.name = translatedName;
+    }
+
+    @PreRemove
+    private void removeFromRoles() {
+        roles.forEach(role -> role.getLocations().remove(this));
     }
 }

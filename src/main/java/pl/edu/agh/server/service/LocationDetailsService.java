@@ -12,6 +12,7 @@ import pl.edu.agh.server.repostiory.LocationDetailsRepository;
 public class LocationDetailsService {
     private static final String NOT_FOUND_MESSAGE = "Location details not found with id: ";
     private final LocationDetailsRepository locationDetailsRepository;
+    private final CurrentUserService currentUserService;
 
     public LocationDetails getTranslatedLocationDetails(long id, String language) {
         LocationDetails locationDetails = locationDetailsRepository.findById(id).orElseThrow(
@@ -25,8 +26,14 @@ public class LocationDetailsService {
     }
 
     public LocationDetails getLocationDetails(long id) {
-        return locationDetailsRepository.findById(id).orElseThrow(
+        LocationDetails locationDetails = locationDetailsRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );
+
+        if (currentUserService.isUnauthorizedForLocation(id)) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+        }
+
+        return locationDetails;
     }
 }

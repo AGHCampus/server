@@ -576,9 +576,13 @@ VALUES (3, 'Parking lot renovation next to Kapitol dormitory.', 'en');
 
 --roles
 INSERT INTO public.roles (id, authority)
+VALUES (1, 'ADMIN');
+INSERT INTO public.roles (id, authority)
 VALUES (2, 'USER');
 INSERT INTO public.roles (id, authority)
-VALUES (1, 'ADMIN');
+VALUES (3, 'UNIVERSITY');
+INSERT INTO public.roles (id, authority)
+VALUES (4, 'OWNER');
 
 --users
 INSERT INTO public.users(id, enabled, nickname, password, username)
@@ -587,6 +591,28 @@ VALUES (1, true, 'admin', '$2a$10$SYW1g5cXvoBg4fHL9HttPuGaRIwr480m25FKA/Zw1iyQ67
 --users_roles
 INSERT INTO public.users_roles(user_id, role_id)
 VALUES (1, 1);
+
+--users_roles
+INSERT INTO public.roles_locations(role_id, location_id)
+VALUES (3, 1);
+INSERT INTO public.roles_locations(role_id, location_id)
+VALUES (3, 18);
+INSERT INTO public.roles_locations(role_id, location_id)
+VALUES (3, 21);
+INSERT INTO public.roles_locations(role_id, location_id)
+VALUES (3, 10);
+INSERT INTO public.roles_locations(role_id, location_id)
+VALUES (3, 8);
+INSERT INTO public.roles_locations(role_id, location_id)
+VALUES (3, 9);
+INSERT INTO public.roles_locations(role_id, location_id)
+VALUES (3, 13);
+INSERT INTO public.roles_locations(role_id, location_id)
+VALUES (3, 12);
+INSERT INTO public.roles_locations(role_id, location_id)
+VALUES (3, 11);
+INSERT INTO public.roles_locations(role_id, location_id)
+VALUES (3, 7);
 
 --private_events
 INSERT INTO public.private_events (id, description, end_date, image_url, last_modified_date, latitude, longitude,
