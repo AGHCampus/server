@@ -36,6 +36,8 @@ import java.util.List;
 @Configuration
 @RequiredArgsConstructor
 public class SecurityConfiguration {
+    private static final String ADMIN = "ADMIN";
+    private static final String UNIVERSITY = "UNIVERSITY";
     private final RSAKeyProperties rsaKeyProperties;
 
     @Bean
@@ -57,8 +59,9 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/**").permitAll()
-                        .requestMatchers("/information").hasAnyRole("UNIVERSITY", "ADMIN")
-                        .requestMatchers("/users").hasRole("ADMIN")
+                        .requestMatchers("/information").hasAnyRole(UNIVERSITY, ADMIN)
+                        .requestMatchers("/users").hasRole(ADMIN)
+                        .requestMatchers("/roles").hasRole(ADMIN)
                         .anyRequest().authenticated()
                 );
 

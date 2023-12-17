@@ -586,11 +586,13 @@ VALUES (4, 'OWNER');
 
 --users
 INSERT INTO public.users(id, enabled, nickname, password, username)
-VALUES (1, true, 'admin', '$2a$10$SYW1g5cXvoBg4fHL9HttPuGaRIwr480m25FKA/Zw1iyQ67vuClJWK', 'admin@agh.edu.pl');
+VALUES (1, true, 'Admin', '$2a$10$SYW1g5cXvoBg4fHL9HttPuGaRIwr480m25FKA/Zw1iyQ67vuClJWK', 'admin@agh.edu.pl');
+INSERT INTO public.users(id, enabled, nickname, password, username)
+VALUES (2, true, 'Roman', '$2a$10$SYW1g5cXvoBg4fHL9HttPuGaRIwr480m25FKA/Zw1iyQ67vuClJWK', 'roman@agh.edu.pl');
 
 --users_roles
 INSERT INTO public.users_roles(user_id, role_id)
-VALUES (1, 1);
+VALUES (2, 3);
 
 --users_roles
 INSERT INTO public.roles_locations(role_id, location_id)

@@ -41,4 +41,14 @@ public class UserController {
         userManagementService.resetPassword(id);
         return ResponseEntity.ok("Reset password email sent");
     }
+
+    @PutMapping(value = "/{id}", produces = "application/json")
+    public UserResponse updateUser(@PathVariable long id, @RequestBody UserResponse user) {
+        return null;
+    }
+
+    @PostMapping(value = "", produces = "application/json")
+    public UserResponse createUser(@RequestBody UserResponse user) {
+        return null;
+    }
 }
