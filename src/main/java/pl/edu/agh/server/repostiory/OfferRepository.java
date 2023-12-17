@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import pl.edu.agh.server.model.Offer;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -17,6 +18,8 @@ public interface OfferRepository extends JpaRepository<Offer, Long> {
     List<Offer> findByLocationIdOrderByStartDateAsc(@Param("locationId") Long locationId, @Param("date") Date date);
 
     List<Offer> findAllByOrderByStartDateDesc();
+
+    List<Offer> findAllByLocationIdInOrderByStartDateDesc(Collection<Long> locationId);
 
     @Transactional
     void deleteAllByLocationId(Long id);

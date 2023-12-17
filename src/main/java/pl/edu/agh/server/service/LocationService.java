@@ -14,6 +14,7 @@ import pl.edu.agh.server.repostiory.LocationRepository;
 import pl.edu.agh.server.repostiory.OfferRepository;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -23,6 +24,7 @@ public class LocationService {
     private final LocationDetailsRepository locationDetailsRepository;
     private final EventRepository eventRepository;
     private final OfferRepository offerRepository;
+    private final CurrentUserService currentUserService;
 
     public List<Location> getTranslatedLocationList(String language) {
         List<Location> locations = locationRepository.findAll();
@@ -37,7 +39,13 @@ public class LocationService {
     }
 
     public List<Location> getLocationList() {
-        List<Location> locations = locationRepository.findAll();
+        List<Location> locations;
+        if (currentUserService.hasAdminPermissions()) {
+            locations = locationRepository.findAll();
+        } else {
+            Set<Long> locationIds = currentUserService.getLocationIds();
+            locations = locationRepository.findAllById(locationIds);
+        }
 
         locations.forEach(location -> location.setCoordinate(new Coordinate(location.getLongitude(), location.getLatitude())));
 
@@ -59,6 +67,10 @@ public class LocationService {
     }
 
     public Location getLocation(long id) {
+        if (currentUserService.isUnauthorizedForLocation(id)) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+        }
+
         Location location = locationRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );
@@ -78,13 +90,18 @@ public class LocationService {
         locationDetails.updateFromRequest(location, locationRequest);
 
         Location createdLocation = locationRepository.saveAndFlush(location);
-        createdLocation.setCoordinate(new Coordinate(createdLocation.getLongitude(), createdLocation.getLatitude()));
         locationDetailsRepository.saveAndFlush(locationDetails);
+        currentUserService.addLocationToRole(createdLocation);
 
+        createdLocation.setCoordinate(new Coordinate(createdLocation.getLongitude(), createdLocation.getLatitude()));
         return createdLocation;
     }
 
     public Location updateLocation(long id, LocationRequest locationRequest) {
+        if (currentUserService.isUnauthorizedForLocation(id)) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+        }
+
         Location location = locationRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );
@@ -103,6 +120,10 @@ public class LocationService {
     }
 
     public Location deleteLocation(long id) {
+        if (currentUserService.isUnauthorizedForLocation(id)) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+        }
+
         Location location = locationRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );

@@ -11,12 +11,14 @@ import pl.edu.agh.server.repostiory.EventRepository;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
 public class EventService {
     private static final String NOT_FOUND_MESSAGE = "Event not found with id: ";
     private final EventRepository eventRepository;
+    private final CurrentUserService currentUserService;
 
     public List<Event> getTranslatedEventsList(Optional<Long> locationId, String language) {
         List<Event> events;
@@ -37,7 +39,12 @@ public class EventService {
     }
 
     public List<Event> getEventsList() {
-        return eventRepository.findAllByOrderByStartDateDesc() ;
+        if (currentUserService.hasAdminPermissions()) {
+            return eventRepository.findAllByOrderByStartDateDesc() ;
+        }
+
+        Set<Long> locationIds = currentUserService.getLocationIds();
+        return eventRepository.findAllByLocationIdInOrderByStartDateDesc(locationIds);
     }
 
     public Event getTanslatedEvent(long id, String language) {
@@ -53,9 +60,15 @@ public class EventService {
     }
 
     public Event getEvent(long id) {
-        return eventRepository.findById(id).orElseThrow(
+        Event event =  eventRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );
+
+        if (currentUserService.isUnauthorizedForLocation(event.getLocationId())) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+        }
+
+        return event;
     }
 
     public Event createEvent(EventRequest eventRequest) {
@@ -70,6 +83,10 @@ public class EventService {
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );
 
+        if (currentUserService.isUnauthorizedForLocation(event.getLocationId())) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+        }
+
         event.updateFromRequest(eventRequest);
 
         return eventRepository.saveAndFlush(event);
@@ -79,6 +96,10 @@ public class EventService {
         Event event = eventRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_MESSAGE + id)
         );
+
+        if (currentUserService.isUnauthorizedForLocation(event.getLocationId())) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+        }
 
         eventRepository.deleteById(id);
 
