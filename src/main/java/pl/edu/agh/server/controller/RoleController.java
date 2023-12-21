@@ -3,17 +3,19 @@ package pl.edu.agh.server.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import pl.edu.agh.server.model.Role;
+import pl.edu.agh.server.service.RoleService;
 
-import java.util.Collections;
 import java.util.List;
 
 @RestController
 @RequestMapping("roles")
 @RequiredArgsConstructor
 public class RoleController {
+    private final RoleService roleService;
+
     @GetMapping(value = "", produces = "application/json")
     public List<Role> getRolesList() {
-        return Collections.emptyList();
+        return roleService.getRolesList();
     }
 
     @GetMapping(value = "/{id}", produces = "application/json")
